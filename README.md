@@ -1,6 +1,15 @@
 
 # SAM LOCAL SANDBOX
 
+## Installing SAM CLI
+
+```bash
+brew tap aws/tap
+brew install aws-sam-cli
+```
+See: <https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html>
+
+
 ## Using AWS SAM (Server Application Model)
 
 This application collection is for exploring SAM local and AWS SAM
