@@ -1,0 +1,21 @@
+{
+  "name": "db_app",
+  "version": "1.0.0",
+  "description": "database access application",
+  "main": "app.js",
+  "author": "SAM CLI",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "aws-sdk": ">= 2.0.9",
+    "pg": "6.1.2",
+    "node-uuid": ">= 1.4.1"
+  },
+  "scripts": {
+    "test": "mocha tests/unit/"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
+}

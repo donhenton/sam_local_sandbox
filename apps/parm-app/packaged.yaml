@@ -1,0 +1,45 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'parm-app
+
+  Sample SAM Template for parm-app
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  ParmAppFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://com.dhenton.sambucket/bfdec45dcef93b66094f0c32bf253886
+      Environment:
+        Variables:
+          ALPHA: null
+          BETA: null
+          GAMMA: null
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+      Events:
+        ParmApp:
+          Type: Api
+          Properties:
+            Path: /parmapp
+            Method: get
+Outputs:
+  ParmAppApi:
+    Description: API Gateway endpoint URL for Prod stage for Parm App function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/parmapp/
+  ParmAppFunction:
+    Description: Parm App Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - ParmAppFunction
+      - Arn
+  ParmAppFunctionIamRole:
+    Description: Implicit IAM Role created for Parm App function
+    Value:
+      Fn::GetAtt:
+      - ParmAppFunctionRole
+      - Arn
