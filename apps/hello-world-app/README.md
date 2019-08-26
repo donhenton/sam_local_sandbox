@@ -1,13 +1,5 @@
 # sam-app
 
-## Installing SAM CLI
-
-```bash
-brew tap aws/tap
-brew install aws-sam-cli
-```
-See: <https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install-mac.html>
-
 
 ## Refs
 
