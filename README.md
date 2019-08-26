@@ -45,6 +45,9 @@ environment variables can be passed in for invoke using the --env-vars flag. The
     }
 }
 ```
+Environment variables can be used to point the local invocations to a localhost database. Since the invocations occur in a docker instance
+the 'servername' will have to be the fully qualified name to host, not *localhost*. Host IP will probably work as well. On AWS the environment
+variable can be set in the lamdba console.
 
 ## Initialization of an application
 
