@@ -8,7 +8,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "aws-sdk": ">= 2.0.9",
-    "pg": "6.1.2",
+    "pg": "7.12.1",
     "node-uuid": ">= 1.4.1"
   },
   "scripts": {
