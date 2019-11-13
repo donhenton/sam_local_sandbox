@@ -1,5 +1,13 @@
 // const axios = require('axios')
 // const url = 'http://checkip.amazonaws.com/';
+/*
+
+Demonstration app illustrating reading from SSM in a lambda and pulling in environment variables.
+
+
+
+
+*/
 let response;
 let aws = require('aws-sdk');
 
