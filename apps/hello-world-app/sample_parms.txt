@@ -1,0 +1,21 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt343431343",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:*",
+        "cloudformation:*",
+        "iam:*",
+        "apigateway:*"
+      ],
+      "Resource": [
+        "arn:aws:lambda:us-east-2:*:*",
+        "arn:aws:iam::*:*",
+        "arn:aws:cloudformation:us-east-2:*:*",
+        "arn:aws:apigateway:us-east-2::*"
+      ]
+    }
+  ]
+}

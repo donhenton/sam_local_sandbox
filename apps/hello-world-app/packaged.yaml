@@ -1,4 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
 Description: 'sam-app
 
   Sample SAM Template for sam-app
@@ -7,6 +8,19 @@ Description: 'sam-app
 Globals:
   Function:
     Timeout: 3
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://com.awsdhenton.hello-bucket/b702c1d1d6bab9606f69371f53ede473
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+      Events:
+        HelloWorld:
+          Type: Api
+          Properties:
+            Path: /hello
+            Method: get
 Outputs:
   HelloWorldApi:
     Description: API Gateway endpoint URL for Prod stage for Hello World function
@@ -24,17 +38,3 @@ Outputs:
       Fn::GetAtt:
       - HelloWorldFunctionRole
       - Arn
-Resources:
-  HelloWorldFunction:
-    Properties:
-      CodeUri: s3://com.dhenton.sambucket/a98979be839d16fb041780113fccc1f3
-      Events:
-        HelloWorld:
-          Properties:
-            Method: get
-            Path: /hello
-          Type: Api
-      Handler: app.lambdaHandler
-      Runtime: nodejs10.x
-    Type: AWS::Serverless::Function
-Transform: AWS::Serverless-2016-10-31
