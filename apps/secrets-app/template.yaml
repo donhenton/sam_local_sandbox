@@ -1,0 +1,44 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  secrets-app
+
+  Sample SAM Template for secrets-app
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  SecretsAppFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: secrets-app/
+      Environment:
+        Variables:
+          ALPHA:  # will come from env.json locally and SSM when on the aws server
+          BETA:   
+          GAMMA:  
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+      Events:
+        SecretsApp:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /SecretsApp
+            Method: get
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  SecretsAppApi:
+    Description: "API Gateway endpoint URL for Prod stage for Secrets App function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/SecretsApp/"
+  SecretsAppFunction:
+    Description: "Secrets App Lambda Function ARN"
+    Value: !GetAtt SecretsAppFunction.Arn
+  SecretsAppFunctionIamRole:
+    Description: "Implicit IAM Role created for Secrets App function"
+    Value: !GetAtt SecretsAppFunctionRole.Arn

@@ -1,0 +1,39 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  find-all-characters
+
+  Sample SAM Template for find-all-characters
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  FIndAllCharactersFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: fina-all-characters/
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+      Events:
+        FIndAllCharacters:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /find-all-characters
+            Method: get
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  FindAllCharactersApi:
+    Description: "API Gateway endpoint URL for Prod stage for FindAllCharacters function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/findAllCharacters/"
+  FIndAllCharactersFunction:
+    Description: "FInd All Characters Lambda Function ARN"
+    Value: !GetAtt FIndAllCharactersFunction.Arn
+  FIndAllCharactersFunctionIamRole:
+    Description: "Implicit IAM Role created for FInd All Characters function"
+    Value: !GetAtt FIndAllCharactersFunctionRole.Arn
