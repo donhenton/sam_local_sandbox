@@ -1,6 +1,6 @@
-# find-stories
+# find-comics
 
-This is a sample template for find-stories - Below is a brief explanation of what we have generated for you:
+This is a sample template for find-comics - Below is a brief explanation of what we have generated for you:
 
 ```bash
 .
