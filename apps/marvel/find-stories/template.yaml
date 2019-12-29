@@ -1,0 +1,43 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  find-stories
+
+  Sample SAM Template for find-stories
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 15
+
+Resources:
+  FindStoriesFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: find-stories/
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+      Events:
+        FindStories:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /find-stories
+            Method: get
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  FindStoriesApi:
+    Description: "API Gateway endpoint URL for Prod stage for FindStories function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/FindStories/"
+  FindStoriesFunction:
+    Description: "Stories Lambda Function ARN"
+    Value: !GetAtt FindStoriesFunction.Arn
+  # FindStoriesFunctionIamRole:
+  #   Description: "Implicit IAM Role created for   Stories function"
+  #   Value: !GetAtt FindStoriesFunctionRole.Arn
+  FindStoriesFunctionIamRole:
+    Description: "Implicit IAM Role created for Find Stories function"
+    Value: arn:aws:iam::235926060045:role/basicLamdba
+    

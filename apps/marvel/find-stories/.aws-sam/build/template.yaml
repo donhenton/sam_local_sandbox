@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'find-stories
+
+  Sample SAM Template for find-stories
+
+  '
+Globals:
+  Function:
+    Timeout: 15
+Outputs:
+  FindStoriesApi:
+    Description: API Gateway endpoint URL for Prod stage for FindStories function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/FindStories/
+  FindStoriesFunction:
+    Description: Stories Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - FindStoriesFunction
+      - Arn
+  FindStoriesFunctionIamRole:
+    Description: Implicit IAM Role created for Find Stories function
+    Value: arn:aws:iam::235926060045:role/basicLamdba
+Resources:
+  FindStoriesFunction:
+    Properties:
+      CodeUri: FindStoriesFunction
+      Events:
+        FindStories:
+          Properties:
+            Method: get
+            Path: /find-stories
+          Type: Api
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
