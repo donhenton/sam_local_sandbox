@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'find-all-characters
+
+  Sample SAM Template for find-all-characters
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Outputs:
+  FindAllCharactersApi:
+    Description: API Gateway endpoint URL for Prod stage for FindAllCharacters function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/FindAllCharacters/
+  FindAllCharactersFunction:
+    Description: FInd All Characters Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - FindAllCharactersFunction
+      - Arn
+  FindAllCharactersFunctionIamRole:
+    Description: Implicit IAM Role created for FInd All Characters function
+    Value:
+      Fn::GetAtt:
+      - FindAllCharactersFunctionRole
+      - Arn
+Resources:
+  FindAllCharactersFunction:
+    Properties:
+      CodeUri: FindAllCharactersFunction
+      Events:
+        FindAllCharacters:
+          Properties:
+            Method: get
+            Path: /find-all-characters
+          Type: Api
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

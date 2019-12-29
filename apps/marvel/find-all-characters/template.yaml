@@ -11,14 +11,14 @@ Globals:
     Timeout: 3
 
 Resources:
-  FIndAllCharactersFunction:
+  FindAllCharactersFunction:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
-      CodeUri: fina-all-characters/
+      CodeUri: find-all-characters/
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
       Events:
-        FIndAllCharacters:
+        FindAllCharacters:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /find-all-characters
@@ -30,10 +30,10 @@ Outputs:
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   FindAllCharactersApi:
     Description: "API Gateway endpoint URL for Prod stage for FindAllCharacters function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/findAllCharacters/"
-  FIndAllCharactersFunction:
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/FindAllCharacters/"
+  FindAllCharactersFunction:
     Description: "FInd All Characters Lambda Function ARN"
-    Value: !GetAtt FIndAllCharactersFunction.Arn
-  FIndAllCharactersFunctionIamRole:
+    Value: !GetAtt FindAllCharactersFunction.Arn
+  FindAllCharactersFunctionIamRole:
     Description: "Implicit IAM Role created for FInd All Characters function"
-    Value: !GetAtt FIndAllCharactersFunctionRole.Arn
+    Value: !GetAtt FindAllCharactersFunctionRole.Arn
