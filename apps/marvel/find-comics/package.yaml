@@ -1,0 +1,37 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'find-comics
+
+  Sample SAM Template for find-comics
+
+  '
+Globals:
+  Function:
+    Timeout: 15
+Resources:
+  FindComicsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://com.awsdhenton.marvel.findcomics/38f25b8daf2f95bb08520c9ed3e1f2cc
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+      Events:
+        FindComics:
+          Type: Api
+          Properties:
+            Path: /find-comics
+            Method: get
+Outputs:
+  FindComicsApi:
+    Description: API Gateway endpoint URL for Prod stage for FindComics function
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/FindComics/
+  FindComicsFunction:
+    Description: Comics Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - FindComicsFunction
+      - Arn
+  FindComicsFunctionIamRole:
+    Description: Implicit IAM Role created for Find Comics function
+    Value: arn:aws:iam::235926060045:role/basicLamdba
