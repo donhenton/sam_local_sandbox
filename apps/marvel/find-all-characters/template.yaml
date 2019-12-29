@@ -8,7 +8,7 @@ Description: >
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 15
 
 Resources:
   FindAllCharactersFunction:
@@ -34,6 +34,10 @@ Outputs:
   FindAllCharactersFunction:
     Description: "FInd All Characters Lambda Function ARN"
     Value: !GetAtt FindAllCharactersFunction.Arn
+  # FindAllCharactersFunctionIamRole:
+  #   Description: "Implicit IAM Role created for FInd All Characters function"
+  #   Value: !GetAtt FindAllCharactersFunctionRole.Arn
   FindAllCharactersFunctionIamRole:
     Description: "Implicit IAM Role created for FInd All Characters function"
-    Value: !GetAtt FindAllCharactersFunctionRole.Arn
+    Value: arn:aws:iam::235926060045:role/basicLamdba
+    

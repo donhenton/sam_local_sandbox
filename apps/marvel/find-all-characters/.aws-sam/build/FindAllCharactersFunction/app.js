@@ -57,14 +57,12 @@ response = {
 }
 exports.lambdaHandler = async(event, context) => {
     let secretName = "marvel/accessKeys";
-    let offset = 0;
-    let dir = null;
+    let offset;
     if (event.queryStringParameters) {
         if (event.queryStringParameters.offset) {
             offset = parseInt(event.queryStringParameters.offset);
         }
-        dir = event.queryStringParameters.dir;
-        if (!dir) {
+        if (!offset) {
             offset = 0;
         }
     }

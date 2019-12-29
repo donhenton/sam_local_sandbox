@@ -1,4 +1,5 @@
 AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
 Description: 'find-all-characters
 
   Sample SAM Template for find-all-characters
@@ -6,7 +7,20 @@ Description: 'find-all-characters
   '
 Globals:
   Function:
-    Timeout: 3
+    Timeout: 15
+Resources:
+  FindAllCharactersFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://com.awsdhenton.marvel.findallcharacters/205854a2b778257d5550997260521e54
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+      Events:
+        FindAllCharacters:
+          Type: Api
+          Properties:
+            Path: /find-all-characters
+            Method: get
 Outputs:
   FindAllCharactersApi:
     Description: API Gateway endpoint URL for Prod stage for FindAllCharacters function
@@ -20,20 +34,4 @@ Outputs:
       - Arn
   FindAllCharactersFunctionIamRole:
     Description: Implicit IAM Role created for FInd All Characters function
-    Value:
-      Fn::GetAtt:
-      - arn:aws:iam::235926060045:role/basicLamdba
-Resources:
-  FindAllCharactersFunction:
-    Properties:
-      CodeUri: FindAllCharactersFunction
-      Events:
-        FindAllCharacters:
-          Properties:
-            Method: get
-            Path: /find-all-characters
-          Type: Api
-      Handler: app.lambdaHandler
-      Runtime: nodejs10.x
-    Type: AWS::Serverless::Function
-Transform: AWS::Serverless-2016-10-31
+    Value: arn:aws:iam::235926060045:role/basicLamdba
