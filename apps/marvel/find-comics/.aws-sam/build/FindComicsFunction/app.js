@@ -48,7 +48,10 @@ const asyncFindComicsForCharacter = async function(characterId, marvelClient) {
 response = {
     'statusCode': 200,
     "headers": {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "access-control-allow-headers": "access-control-allow-headers,access-control-allow-methods,access-control-allow-origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+        "access-control-allow-methods": "GET",
+        "access-control-allow-origin": "*"
     },
     'body': ''
 }

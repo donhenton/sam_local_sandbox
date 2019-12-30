@@ -12,7 +12,7 @@ Resources:
   FindStoriesFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://com.awsdhenton.marvel.findstories/3e4a18ee4f8f4bf6f5cc0dab5b548132
+      CodeUri: s3://com.awsdhenton.marvel.findstories/a7d4116850a61b5d5995f0760cb13844
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
       Events:
