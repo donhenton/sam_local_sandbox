@@ -34,10 +34,10 @@ Outputs:
   FindAllCharactersFunction:
     Description: "FInd All Characters Lambda Function ARN"
     Value: !GetAtt FindAllCharactersFunction.Arn
-  # FindAllCharactersFunctionIamRole:
-  #   Description: "Implicit IAM Role created for FInd All Characters function"
-  #   Value: !GetAtt FindAllCharactersFunctionRole.Arn
   FindAllCharactersFunctionIamRole:
     Description: "Implicit IAM Role created for FInd All Characters function"
-    Value: arn:aws:iam::235926060045:role/basicLamdba
+    Value: !GetAtt FindAllCharactersFunctionRole.Arn
+  #FindAllCharactersFunctionIamRole:
+  #  Description: "Implicit IAM Role created for FInd All Characters function"
+  #  Value: arn:aws:iam::235926060045:role/basicLamdba
     

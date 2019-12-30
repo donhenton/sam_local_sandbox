@@ -12,7 +12,7 @@ Resources:
   FindAllCharactersFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://com.awsdhenton.marvel.findallcharacters/205854a2b778257d5550997260521e54
+      CodeUri: s3://com.awsdhenton.marvel.findallcharacters/6d8914d26b5419ca7e70b8e286fb6bd0
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
       Events:
@@ -34,4 +34,7 @@ Outputs:
       - Arn
   FindAllCharactersFunctionIamRole:
     Description: Implicit IAM Role created for FInd All Characters function
-    Value: arn:aws:iam::235926060045:role/basicLamdba
+    Value:
+      Fn::GetAtt:
+      - FindAllCharactersFunctionRole
+      - Arn

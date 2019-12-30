@@ -51,7 +51,10 @@ asyncFindAllCharacters = async function(offset, marvelClient) {
 response = {
     'statusCode': 200,
     "headers": {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "access-control-allow-headers": "access-control-allow-headers,access-control-allow-methods,access-control-allow-origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+        "access-control-allow-methods": "GET",
+        "access-control-allow-origin": "*"
     },
     'body': ''
 }
@@ -77,7 +80,9 @@ exports.lambdaHandler = async(event, context) => {
 
     } catch (err) {
 
-        const e = { "ERROR": err };
+        const e = {
+            "ERROR": err
+        };
         console.log(err);
         response.statusCode = 500;
         response.body = JSON.stringify(e);
