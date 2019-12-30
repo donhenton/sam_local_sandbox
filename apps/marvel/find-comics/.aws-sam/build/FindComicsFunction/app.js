@@ -36,7 +36,7 @@ const asyncFindComicsForCharacter = async function(characterId, marvelClient) {
             };
 
         } catch (err) {
-            logger.error('find comic problem ', err);
+            console.error('find comic problem ', err);
 
         }
     }

@@ -53,7 +53,7 @@ asyncFindStoriesForCharacter = async function(characterId, marvelClient) {
                 data: simplifyStoryData(data)
             };
         } catch (err) {
-            logger.error('find stories problem ', err);
+            console.error('find stories problem ', err);
 
         }
     }

@@ -12,7 +12,7 @@ Resources:
   FindComicsFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://com.awsdhenton.marvel.findcomics/3806eb2f8370d558d39b3dfde77fe53e
+      CodeUri: s3://com.awsdhenton.marvel.findcomics/e7bfabbf36407663e18330d9469eaed2
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
       Events:
