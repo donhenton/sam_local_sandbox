@@ -12,6 +12,7 @@ Resources:
         AttributeDefinitions: 
             - AttributeName: id
               AttributeType: N
+            # only need to define attributes that are part of the keys
             # - AttributeName: name
             #   AttributeType: S
             # - AttributeName: zipCode
