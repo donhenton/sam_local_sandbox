@@ -1,0 +1,59 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'create restaurant db tables'
+ 
+Resources:
+    Restaurants:
+      Type: AWS::DynamoDB::Table
+      Properties: 
+        TableName: Restaurants
+        SSESpecification: 
+          SSEEnabled: True
+        AttributeDefinitions: 
+            - AttributeName: id
+              AttributeType: N
+            # - AttributeName: name
+            #   AttributeType: S
+            # - AttributeName: zipCode
+            #   AttributeType: S
+            # - AttributeName: city
+            #   AttributeType: S
+            # - AttributeName: state
+            #   AttributeType: S
+            # - AttributeName: version
+            #   AttributeType: N
+
+        KeySchema: 
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput: 
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+    Reviews:
+        Type: AWS::DynamoDB::Table
+        Properties: 
+            TableName: Reviews
+            SSESpecification: 
+                SSEEnabled: True
+            AttributeDefinitions: 
+                - AttributeName: restaurantId
+                  AttributeType: N
+                - AttributeName: id
+                  AttributeType: N
+                # - AttributeName: starRating
+                #   AttributeType: N
+                # - AttributeName: reviewListing
+                #   AttributeType: S
+                # - AttributeName: stampDate
+                #   AttributeType: S
+
+            KeySchema: 
+            - AttributeName: restaurantId
+              KeyType: HASH
+            - AttributeName: id
+              KeyType: RANGE
+            ProvisionedThroughput:  
+                ReadCapacityUnits: 1
+                WriteCapacityUnits: 1
+
+             
