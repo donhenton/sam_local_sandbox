@@ -1,6 +1,7 @@
 /**
  * Data loading routine that takes the restaurant/review data
  * and formats it for dynamodb
+ * https://docs.aws.amazon.com/cli/latest/reference/dynamodb/batch-write-item.html
  */
 
 const fs = require('fs');
