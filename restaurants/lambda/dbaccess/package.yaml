@@ -1,0 +1,27 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'DBAccess
+
+  DynamoDB for Restaurants
+
+  '
+Globals:
+  Function:
+    Timeout: 15
+Resources:
+  DbAccessFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://com.awsdhenton.restaurants/2b8ed2679d714a6600014bc44a1b215e
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+Outputs:
+  DbAccessFunction:
+    Description: Stories Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - DbAccessFunction
+      - Arn
+  DbAccessFunctionIamRole:
+    Description: Implicit IAM Role created for DbAccess function
+    Value: arn:aws:iam::235926060045:role/basicLamdba
