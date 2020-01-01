@@ -1,0 +1,364 @@
+{
+ "Restaurants": [
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Buffas Delicatessen"
+     },
+     "zipCode": {
+      "S": "10012"
+     },
+     "city": {
+      "S": "New York"
+     },
+     "state": {
+      "S": "NY"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "10e6ccf1-c0cb-4c71-abc3-cbc3e55c82e1"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Huddle House"
+     },
+     "zipCode": {
+      "S": "30701"
+     },
+     "city": {
+      "S": "Calhoun"
+     },
+     "state": {
+      "S": "AA"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "b6dc53d8-fee2-4f3d-8866-5f313d5d4d09"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Gollums Pies"
+     },
+     "zipCode": {
+      "S": "39812"
+     },
+     "city": {
+      "S": "Mordor"
+     },
+     "state": {
+      "S": "WI"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "1d2097c7-65cc-4410-8ec9-3af23d51b524"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Chubys's"
+     },
+     "zipCode": {
+      "S": "97044"
+     },
+     "city": {
+      "S": "Odell"
+     },
+     "state": {
+      "S": "OR"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "cc1499d7-faf4-4c1e-8a52-bd1541839e54"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Morbid Things"
+     },
+     "zipCode": {
+      "S": "90021"
+     },
+     "city": {
+      "S": "Montrose"
+     },
+     "state": {
+      "S": "CA"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "61d8b328-77f3-4095-8d06-b99e3b765832"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "John Browne's Pub & Eatery 2"
+     },
+     "zipCode": {
+      "S": "46235"
+     },
+     "city": {
+      "S": "Indianapolis"
+     },
+     "state": {
+      "S": "IN"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "6cfecdf8-0937-4232-b781-0823a07a9284"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Fred Recycled Tires and Pizza"
+     },
+     "zipCode": {
+      "S": "60606"
+     },
+     "city": {
+      "S": "Blasting Cap"
+     },
+     "state": {
+      "S": "CO"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "488365ec-02eb-45fc-84c5-2b2f042e4ac1"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Subway Subs"
+     },
+     "zipCode": {
+      "S": "88008"
+     },
+     "city": {
+      "S": "Santa Teresa"
+     },
+     "state": {
+      "S": "NM"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "61abc92c-98ab-4105-a307-dbc6da462bde"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Pancake Cafe"
+     },
+     "zipCode": {
+      "S": "60540"
+     },
+     "city": {
+      "S": "Naperville"
+     },
+     "state": {
+      "S": "IL"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "1918771e-2356-4320-8769-b43c8d528576"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Bojangles"
+     },
+     "zipCode": {
+      "S": "29203"
+     },
+     "city": {
+      "S": "Columbia"
+     },
+     "state": {
+      "S": "SC"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "b90d9e0a-39b9-479b-9c3c-e8f59ed4cb09"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Krapps Last Pizzeria"
+     },
+     "zipCode": {
+      "S": "54321"
+     },
+     "city": {
+      "S": "Kracow"
+     },
+     "state": {
+      "S": "WI"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "ebc39134-fdef-4f5b-8dc1-e77c21066e0e"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Zarbo's Family Restaurant"
+     },
+     "zipCode": {
+      "S": "40405"
+     },
+     "city": {
+      "S": "Blasting Cap"
+     },
+     "state": {
+      "S": "CO"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "4ad50d6d-2c26-46c0-8290-5475e0fadc56"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Raj Malvi"
+     },
+     "zipCode": {
+      "S": "232323"
+     },
+     "city": {
+      "S": "Ahmedabad"
+     },
+     "state": {
+      "S": "Gujarat"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "d9f888c6-1ff4-400f-b38f-a5374daf80bd"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Subway"
+     },
+     "zipCode": {
+      "S": "72086"
+     },
+     "city": {
+      "S": "Lonoke"
+     },
+     "state": {
+      "S": "AR"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "efe1114c-3622-4197-b42e-1af399e67ff8"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "mahesh"
+     },
+     "zipCode": {
+      "S": "560037"
+     },
+     "city": {
+      "S": "bangalore"
+     },
+     "state": {
+      "S": "karnataka"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "9163a140-1b4c-4066-9b7a-8d82ddf7224e"
+     }
+    }
+   }
+  }
+ ]
+}

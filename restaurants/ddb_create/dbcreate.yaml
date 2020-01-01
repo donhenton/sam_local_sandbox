@@ -11,7 +11,7 @@ Resources:
           SSEEnabled: True
         AttributeDefinitions: 
             - AttributeName: id
-              AttributeType: N
+              AttributeType: S
             # only need to define attributes that are part of the keys
             # - AttributeName: name
             #   AttributeType: S
@@ -38,9 +38,9 @@ Resources:
                 SSEEnabled: True
             AttributeDefinitions: 
                 - AttributeName: restaurantId
-                  AttributeType: N
+                  AttributeType: S
                 - AttributeName: id
-                  AttributeType: N
+                  AttributeType: S
                 # - AttributeName: starRating
                 #   AttributeType: N
                 # - AttributeName: reviewListing

@@ -1,0 +1,604 @@
+{
+ "Restaurants": [
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Fruition"
+     },
+     "zipCode": {
+      "S": "97210"
+     },
+     "city": {
+      "S": "Portland"
+     },
+     "state": {
+      "S": "OR"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "0f30993c-4b82-4cc4-9625-82dbea0d1315"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Subway4523"
+     },
+     "zipCode": {
+      "S": "30030"
+     },
+     "city": {
+      "S": "Decaturertwe"
+     },
+     "state": {
+      "S": "GA"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "458d3c69-914f-4e90-8c29-9f48b8837dc9"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Hardee's of Murfreesboro No 4"
+     },
+     "zipCode": {
+      "S": "37128"
+     },
+     "city": {
+      "S": "Murfreesboro"
+     },
+     "state": {
+      "S": "TN"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "ec6ac615-c217-4fa4-8b56-be4cb71a7ffb"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Dairy Queen restaurant"
+     },
+     "zipCode": {
+      "S": "51510"
+     },
+     "city": {
+      "S": "Carter Lake"
+     },
+     "state": {
+      "S": "IA"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "8c69af50-2235-4c18-83e1-65825f12f73f"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Imperial Wok Chinese Restaurant"
+     },
+     "zipCode": {
+      "S": "71118"
+     },
+     "city": {
+      "S": "Shreveport"
+     },
+     "state": {
+      "S": "LA"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "dce15664-82e2-4993-97c3-f7f985b10a15"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Hardee's"
+     },
+     "zipCode": {
+      "S": "20601"
+     },
+     "city": {
+      "S": "Waldorf"
+     },
+     "state": {
+      "S": "MD"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "cb398057-cade-47d2-b6ad-d1203b9a57a0"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Cinnabon"
+     },
+     "zipCode": {
+      "S": "32605"
+     },
+     "city": {
+      "S": "Gainesville"
+     },
+     "state": {
+      "S": "FL"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "d1c05f34-ffd6-4f09-b9df-4f1a5243affc"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Angle Inn Restaurant"
+     },
+     "zipCode": {
+      "S": "61103"
+     },
+     "city": {
+      "S": "Rockford"
+     },
+     "state": {
+      "S": "IL"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "d9d7554a-32a7-4302-9987-38773966d83f"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Casey's Carry Out Pizza"
+     },
+     "zipCode": {
+      "S": "61285"
+     },
+     "city": {
+      "S": "Thomson"
+     },
+     "state": {
+      "S": "IL"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "4b3436a8-116b-4e82-83b0-c384b36b996d"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Sonic Drive In"
+     },
+     "zipCode": {
+      "S": "84118"
+     },
+     "city": {
+      "S": "Salt Lake City"
+     },
+     "state": {
+      "S": "UT"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "95b01e16-47bc-4215-835f-b9e7f898a5e3"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Mcdonald's restaurant"
+     },
+     "zipCode": {
+      "S": "53406"
+     },
+     "city": {
+      "S": "Racine"
+     },
+     "state": {
+      "S": "WI"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "ee016141-c05d-482a-a998-6771845fa84e"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "angel"
+     },
+     "zipCode": {
+      "S": "600052"
+     },
+     "city": {
+      "S": "chennai"
+     },
+     "state": {
+      "S": "tamilnadu"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "3b99e18f-5374-4415-a0a6-7be02ae4011f"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Giovanni's Pizzeria"
+     },
+     "zipCode": {
+      "S": "89123"
+     },
+     "city": {
+      "S": "Las Vegas"
+     },
+     "state": {
+      "S": "NV"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "66cd659c-0bed-40e3-8d79-d6cfa5229463"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Bangkok Royal"
+     },
+     "zipCode": {
+      "S": "76706"
+     },
+     "city": {
+      "S": "Waco"
+     },
+     "state": {
+      "S": "TX"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "f13d9fdb-46e5-41eb-8927-1080b699a685"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Golden Coin Bake Shop & Restaurant"
+     },
+     "zipCode": {
+      "S": "96797"
+     },
+     "city": {
+      "S": "Waipahu"
+     },
+     "state": {
+      "S": "HI"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "c4e495be-276a-498e-8958-a8898d83838c"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Cristaudo's Grand Avenue"
+     },
+     "zipCode": {
+      "S": "62901"
+     },
+     "city": {
+      "S": "Carbondale"
+     },
+     "state": {
+      "S": "IL"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "e14f1749-d24b-4b6b-b7e1-543f69785e58"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "A1 Ocean Cafe"
+     },
+     "zipCode": {
+      "S": "94104"
+     },
+     "city": {
+      "S": "San Francisco"
+     },
+     "state": {
+      "S": "CA"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "e7975c19-bdcc-4e62-a457-de040c231fa9"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Beach Dog Computer Center"
+     },
+     "zipCode": {
+      "S": "96720"
+     },
+     "city": {
+      "S": "Hilo"
+     },
+     "state": {
+      "S": "HI"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "29f2226d-4670-47af-9f89-b5464948a858"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Burger King"
+     },
+     "zipCode": {
+      "S": "77070"
+     },
+     "city": {
+      "S": "Houston"
+     },
+     "state": {
+      "S": "TX"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "36eadc49-a8c5-42ea-9d8e-fb43319d442e"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Sue's Restaurant"
+     },
+     "zipCode": {
+      "S": "02903"
+     },
+     "city": {
+      "S": "Providence"
+     },
+     "state": {
+      "S": "RI"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "6fcba36c-14fc-4111-a7c1-a80ed6295c5d"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Dairy Queen Brazier"
+     },
+     "zipCode": {
+      "S": "64429"
+     },
+     "city": {
+      "S": "Cameron"
+     },
+     "state": {
+      "S": "MO"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "2a947871-41c6-4927-a799-5778a35f0c7e"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Subway"
+     },
+     "zipCode": {
+      "S": "53073"
+     },
+     "city": {
+      "S": "Plymouth"
+     },
+     "state": {
+      "S": "WI"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "591f3017-9510-4eb4-86b9-29acdbc63e33"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Fox River Brew Pub"
+     },
+     "zipCode": {
+      "S": "54902"
+     },
+     "city": {
+      "S": "Oshkosh"
+     },
+     "state": {
+      "S": "WI"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "c754d381-79c6-4c88-9c10-0d8090ad53c9"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Huhot Mongolian Grill"
+     },
+     "zipCode": {
+      "S": "68154"
+     },
+     "city": {
+      "S": "Omaha"
+     },
+     "state": {
+      "S": "NE"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "2699bb79-1637-45f8-b71f-30001323830f"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "name": {
+      "S": "Monster's Muncies"
+     },
+     "zipCode": {
+      "S": "30245"
+     },
+     "city": {
+      "S": "Okalahoma"
+     },
+     "state": {
+      "S": "KS"
+     },
+     "version": {
+      "N": "1"
+     },
+     "id": {
+      "S": "d007370e-3391-4453-bdb2-3ba0e632e7ea"
+     }
+    }
+   }
+  }
+ ]
+}

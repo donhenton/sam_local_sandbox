@@ -1,0 +1,508 @@
+{
+ "Reviews": [
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "yu5u5u56u65"
+     },
+     "stampDate": {
+      "S": "null"
+     },
+     "id": {
+      "S": "fd689481-876b-462e-924f-835c37469606"
+     },
+     "restaurantId": {
+      "S": "3b99e18f-5374-4415-a0a6-7be02ae4011f"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "1"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "0bec30e8-c059-49b2-b28b-44bb99ef367d"
+     },
+     "restaurantId": {
+      "S": "66cd659c-0bed-40e3-8d79-d6cfa5229463"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "Consider suicide first"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "03c3f81d-c006-4703-a263-9cbefd08a629"
+     },
+     "restaurantId": {
+      "S": "66cd659c-0bed-40e3-8d79-d6cfa5229463"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "6"
+     },
+     "reviewListing": {
+      "S": "A real gas"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "7e5dd6b0-06bd-405e-b276-368b73060cdd"
+     },
+     "restaurantId": {
+      "S": "66cd659c-0bed-40e3-8d79-d6cfa5229463"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "e8fab96d-5ee8-4a53-8db2-16bc88d03ab5"
+     },
+     "restaurantId": {
+      "S": "66cd659c-0bed-40e3-8d79-d6cfa5229463"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "Can you say \"gastric bypass\"?"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "ca1f960f-aa1e-405f-bd6f-53495db58e88"
+     },
+     "restaurantId": {
+      "S": "f13d9fdb-46e5-41eb-8927-1080b699a685"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "4"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "7f165dc2-9573-40c6-ae99-0543dbc98777"
+     },
+     "restaurantId": {
+      "S": "f13d9fdb-46e5-41eb-8927-1080b699a685"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "6"
+     },
+     "reviewListing": {
+      "S": "Get a job, instead of eating here!"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "b28dfffb-4c15-4926-b455-1ab94adcef4d"
+     },
+     "restaurantId": {
+      "S": "f13d9fdb-46e5-41eb-8927-1080b699a685"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "6"
+     },
+     "reviewListing": {
+      "S": "A real gas"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "2617d9d5-3650-4147-9770-47309ca47d3e"
+     },
+     "restaurantId": {
+      "S": "c4e495be-276a-498e-8958-a8898d83838c"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "6"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "497620db-395f-4a83-9cf4-c869fffe223e"
+     },
+     "restaurantId": {
+      "S": "c4e495be-276a-498e-8958-a8898d83838c"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "Consider suicide first"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "63741521-6372-4b92-a972-c9ad9890fae1"
+     },
+     "restaurantId": {
+      "S": "c4e495be-276a-498e-8958-a8898d83838c"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "aae76723-c192-4481-96ce-adfc00c0e885"
+     },
+     "restaurantId": {
+      "S": "c4e495be-276a-498e-8958-a8898d83838c"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "1"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "92bc64e1-930c-4dc8-96a0-5a9988f286fe"
+     },
+     "restaurantId": {
+      "S": "e14f1749-d24b-4b6b-b7e1-543f69785e58"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "8"
+     },
+     "reviewListing": {
+      "S": "Get a job, instead of eating here!"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "93ff99ce-28e1-4c84-8ae1-0513cfe42b78"
+     },
+     "restaurantId": {
+      "S": "e14f1749-d24b-4b6b-b7e1-543f69785e58"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "5"
+     },
+     "reviewListing": {
+      "S": "Can you say \"gastric bypass\"?"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "ac1d9ab9-8bca-46f0-811a-d85c8342cfd4"
+     },
+     "restaurantId": {
+      "S": "e7975c19-bdcc-4e62-a457-de040c231fa9"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "4"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "96068ef4-d56e-4e33-9ae0-6460a7927312"
+     },
+     "restaurantId": {
+      "S": "e7975c19-bdcc-4e62-a457-de040c231fa9"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "6"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "88d6709e-222c-4970-85c6-7cc2bb590a50"
+     },
+     "restaurantId": {
+      "S": "e7975c19-bdcc-4e62-a457-de040c231fa9"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "Impeccable service!"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "4b912fd5-2a6b-4a6f-96aa-acf0e05794df"
+     },
+     "restaurantId": {
+      "S": "e7975c19-bdcc-4e62-a457-de040c231fa9"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "1"
+     },
+     "reviewListing": {
+      "S": "Can you say \"gastric bypass\"?"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "ee2743ac-a176-4a38-bc85-ccbe52c55666"
+     },
+     "restaurantId": {
+      "S": "29f2226d-4670-47af-9f89-b5464948a858"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "3"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "e6249cda-7c1c-4133-8135-33775765c389"
+     },
+     "restaurantId": {
+      "S": "29f2226d-4670-47af-9f89-b5464948a858"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "3"
+     },
+     "reviewListing": {
+      "S": "Impeccable service!"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "5ce248aa-2493-4f90-9205-5263a2d83f6c"
+     },
+     "restaurantId": {
+      "S": "29f2226d-4670-47af-9f89-b5464948a858"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "5"
+     },
+     "reviewListing": {
+      "S": "Impeccable service!"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "b3aedc02-996d-4472-8d70-4f24f5928815"
+     },
+     "restaurantId": {
+      "S": "36eadc49-a8c5-42ea-9d8e-fb43319d442e"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "4"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "b5242e3c-baa5-454f-bfdb-d6ab26c2d44d"
+     },
+     "restaurantId": {
+      "S": "36eadc49-a8c5-42ea-9d8e-fb43319d442e"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "3"
+     },
+     "reviewListing": {
+      "S": "A root canal would be better"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "1db2600a-16f5-40f0-b9f3-399f0568a5c1"
+     },
+     "restaurantId": {
+      "S": "6fcba36c-14fc-4111-a7c1-a80ed6295c5d"
+     }
+    }
+   }
+  }
+ ]
+}

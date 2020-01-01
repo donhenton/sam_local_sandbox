@@ -1,0 +1,17 @@
+{
+    "name": "load-data",
+    "version": "1.0.0",
+    "keywords": [
+        "util",
+        "functional",
+        "server",
+        "client",
+        "browser"
+    ],
+    "author": "dhenton",
+    "contributors": [],
+    "dependencies": {
+
+        "uuid": "3.3.3"
+    }
+}

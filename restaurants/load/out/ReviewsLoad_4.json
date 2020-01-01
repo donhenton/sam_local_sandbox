@@ -1,0 +1,340 @@
+{
+ "Reviews": [
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "boring as hell"
+     },
+     "stampDate": {
+      "S": "1461936306782"
+     },
+     "id": {
+      "S": "7104321a-4476-42da-b360-ee864cb9fb13"
+     },
+     "restaurantId": {
+      "S": "61abc92c-98ab-4105-a307-dbc6da462bde"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "7"
+     },
+     "reviewListing": {
+      "S": "all right if you like bread"
+     },
+     "stampDate": {
+      "S": "1461866775334"
+     },
+     "id": {
+      "S": "a0d25cfa-e30f-4397-9d11-17854b351260"
+     },
+     "restaurantId": {
+      "S": "61abc92c-98ab-4105-a307-dbc6da462bde"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "8"
+     },
+     "reviewListing": {
+      "S": "loved the secret sauce!!"
+     },
+     "stampDate": {
+      "S": "1461936329976"
+     },
+     "id": {
+      "S": "cc454b11-a20a-4cae-af86-5f0272e7b95d"
+     },
+     "restaurantId": {
+      "S": "61abc92c-98ab-4105-a307-dbc6da462bde"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "9"
+     },
+     "reviewListing": {
+      "S": "Loved the pickles!!"
+     },
+     "stampDate": {
+      "S": "1461867011546"
+     },
+     "id": {
+      "S": "95833200-bd92-4921-ab1c-22618a483da8"
+     },
+     "restaurantId": {
+      "S": "61abc92c-98ab-4105-a307-dbc6da462bde"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "1"
+     },
+     "reviewListing": {
+      "S": "Get a job, instead of eating here!"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "0bec4f86-d923-4cac-8001-f457cadc1188"
+     },
+     "restaurantId": {
+      "S": "1918771e-2356-4320-8769-b43c8d528576"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "4"
+     },
+     "reviewListing": {
+      "S": "Consider suicide first or second"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "97366216-a045-4857-aca9-6a3cb7cfd9c2"
+     },
+     "restaurantId": {
+      "S": "1918771e-2356-4320-8769-b43c8d528576"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "5"
+     },
+     "reviewListing": {
+      "S": "Get a job, instead of eating here!"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "b953c599-b67b-4b6a-847f-73df892f4822"
+     },
+     "restaurantId": {
+      "S": "b90d9e0a-39b9-479b-9c3c-e8f59ed4cb09"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "4"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "73bcd08f-6194-4d3f-bae3-06335d3cc212"
+     },
+     "restaurantId": {
+      "S": "b90d9e0a-39b9-479b-9c3c-e8f59ed4cb09"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "7"
+     },
+     "reviewListing": {
+      "S": "Impeccable service!"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "3241ec5a-bb5b-4492-b295-5fa722c492a9"
+     },
+     "restaurantId": {
+      "S": "b90d9e0a-39b9-479b-9c3c-e8f59ed4cb09"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "3"
+     },
+     "reviewListing": {
+      "S": "You don't know what you are missing"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "53e51ab9-1845-4fab-ac09-cd5964ca1b32"
+     },
+     "restaurantId": {
+      "S": "b90d9e0a-39b9-479b-9c3c-e8f59ed4cb09"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "I Can't go on, I can't go on, I'll have the knockwurst"
+     },
+     "stampDate": {
+      "S": "null"
+     },
+     "id": {
+      "S": "686b4430-33b0-4b09-8827-e5309a18ef8b"
+     },
+     "restaurantId": {
+      "S": "ebc39134-fdef-4f5b-8dc1-e77c21066e0e"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "3"
+     },
+     "reviewListing": {
+      "S": "garbage"
+     },
+     "stampDate": {
+      "S": "1504922581111"
+     },
+     "id": {
+      "S": "b9668f1c-7a5f-4a77-8765-d547304f4c85"
+     },
+     "restaurantId": {
+      "S": "4ad50d6d-2c26-46c0-8290-5475e0fadc56"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "4"
+     },
+     "reviewListing": {
+      "S": "the pies are fantastic"
+     },
+     "stampDate": {
+      "S": "1505313161924"
+     },
+     "id": {
+      "S": "3eb1cb35-b25f-4f53-8d2c-a43d8966e025"
+     },
+     "restaurantId": {
+      "S": "4ad50d6d-2c26-46c0-8290-5475e0fadc56"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "5"
+     },
+     "reviewListing": {
+      "S": "fdgdfgdfg"
+     },
+     "stampDate": {
+      "S": "null"
+     },
+     "id": {
+      "S": "4c55d588-d8d5-45bd-8a71-8561d011ad5e"
+     },
+     "restaurantId": {
+      "S": "d9f888c6-1ff4-400f-b38f-a5374daf80bd"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "2"
+     },
+     "reviewListing": {
+      "S": "xzcvxcvxcvcxvxcv"
+     },
+     "stampDate": {
+      "S": "null"
+     },
+     "id": {
+      "S": "f3293df4-1276-4e65-b25e-33082d9ee386"
+     },
+     "restaurantId": {
+      "S": "d9f888c6-1ff4-400f-b38f-a5374daf80bd"
+     }
+    }
+   }
+  },
+  {
+   "PutRequest": {
+    "Item": {
+     "starRating": {
+      "N": "4"
+     },
+     "reviewListing": {
+      "S": "A root canal would be better"
+     },
+     "stampDate": {
+      "S": "1422964478318"
+     },
+     "id": {
+      "S": "0e1e56be-474a-4aff-9449-24b668f1a76c"
+     },
+     "restaurantId": {
+      "S": "efe1114c-3622-4197-b42e-1af399e67ff8"
+     }
+    }
+   }
+  }
+ ]
+}
