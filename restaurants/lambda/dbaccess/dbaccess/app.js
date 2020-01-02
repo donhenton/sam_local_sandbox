@@ -20,6 +20,7 @@ var getAllRestaurants = require('./methods/getAllRestaurants');
 var postNewRestaurant = require('./methods/postNewRestaurant');
 var getSingleRestaurant = require('./methods/getSingleRestaurant');
 var deleteRestaurant = require('./methods/deleteRestaurant');
+var deleteReviewForRestaurant = require('./methods/deleteReviewForRestaurant');
 
 exports.lambdaHandler = async(event, context) => {
     let bodyObj = {
@@ -82,7 +83,12 @@ exports.lambdaHandler = async(event, context) => {
                 bodyObj.shouldDo = 'add a review for a restaurant';
             }
             if (event.httpMethod === 'DELETE') {
-                bodyObj.shouldDo = 'delete a review for a restaurant';
+
+                const reviewId = event.pathParameters['reviewId'];
+                const restaurantId = event.pathParameters['restaurantId'];
+                await deleteReviewForRestaurant(documentClient, restaurantId, reviewId);
+                response.body = null;
+                return response;
             }
             if (event.httpMethod === 'PUT') {
                 bodyObj.shouldDo = 'update a review for a restaurant';

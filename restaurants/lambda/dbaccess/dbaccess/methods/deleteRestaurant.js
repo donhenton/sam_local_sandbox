@@ -1,4 +1,5 @@
 var getSingleRestaurant = require('./getSingleRestaurant');
+var deleteReviewForRestaurant = require('./deleteReviewForRestaurant');
 
 /**
  * delete a restaurant and associated reviews
@@ -6,7 +7,7 @@ var getSingleRestaurant = require('./getSingleRestaurant');
  * empty body
  * 
  */
-deleteRestaurant = async function(client, id) {
+deleteRestaurant = async function(client, restaurantId) {
 
 
     var runIt = async function(resolve, reject) {
@@ -14,11 +15,12 @@ deleteRestaurant = async function(client, id) {
         var foundRestaurant;
 
         try {
-            foundRestaurant = await getSingleRestaurant(client, id);
+            foundRestaurant = await getSingleRestaurant(client, restaurantId);
             // console.log("found " + foundRestaurant.id)
             foundRestaurant.reviewDTOs.forEach(rev => {
 
                 //TODO delete the reviews
+                //  await deleteReviewForRestaurant(restaurantId, rev.id);
 
             });
             var params = { TableName: "Restaurants", Key: { id: id } }
