@@ -1,3 +1,3 @@
  
  
-sam local invoke DBAccessFunction --event event.json  --profile=cdktest
+sam local invoke DbAccessFunction --event event.json  --profile=cdktest

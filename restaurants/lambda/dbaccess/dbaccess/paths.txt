@@ -1,0 +1,9 @@
+/restaurant                                     GET     get all restaurants with reviews
+/restaurant                                     POST    create a restaurant
+/restaurant/{restaurantId}                      DELETE  delete a restaurant
+/restaurant/{restaurantId}                      GET     get a restaurant
+/restaurant/{restaurantId}                      PUT     update a restaurant
+
+/restaurant/{restaurantId}/review/              POST    add a review for a restaurant 
+/restaurant/{restaurantId}/review/{reviewId}    DELETE  delete a review for a restaurant 
+/restaurant/{restaurantId}/review/{reviewId}    PUT     update review for a restaurant 

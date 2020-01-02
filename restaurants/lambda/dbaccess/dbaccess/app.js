@@ -1,35 +1,76 @@
-// const axios = require('axios')
-// const url = 'http://checkip.amazonaws.com/';
-let response;
+var AWS = require('aws-sdk'),
+    documentClient = new AWS.DynamoDB.DocumentClient();
+var getAllRestaurants = require('./methods/getAllRestaurants');
 
-/**
- *
- * Event doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html#api-gateway-simple-proxy-for-lambda-input-format
- * @param {Object} event - API Gateway Lambda Proxy Input Format
- *
- * Context doc: https://docs.aws.amazon.com/lambda/latest/dg/nodejs-prog-model-context.html 
- * @param {Object} context
- *
- * Return doc: https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-lambda-proxy-integrations.html
- * @returns {Object} object - API Gateway Lambda Proxy Output Format
- * 
- */
 exports.lambdaHandler = async(event, context) => {
-    try {
-        // const ret = await axios(url);
-        console.log('Get a job, bozo!!!!!')
-
-        response = {
-            'statusCode': 200,
-            'body': JSON.stringify({
-                message: 'hello world,bonzo',
-                // location: ret.data.trim()
-            })
-        }
-    } catch (err) {
-        console.log(err);
-        return err;
+    let bodyObj = {
+        method: "NONE",
+        restaurantId: null,
+        reviewId: null,
+        shouldDo: null
+    };
+    const response = {
+        'statusCode': 200,
+        'body': JSON.stringify(bodyObj)
     }
 
-    return response
-};
+    try {
+        bodyObj.method = event.httpMethod;
+        if (!event.pathParameters) {
+
+            if (event.httpMethod === 'GET') {
+                bodyObj.shouldDo = 'get all restaurants';
+                const restaurantData = await getAllRestaurants(documentClient);
+                response.body = JSON.stringify(restaurantData);
+                return response;
+
+            } else {
+                bodyObj.shouldDo = 'add a restaurant'; //POST
+            }
+            response.body = JSON.stringify(bodyObj);
+            return response;
+        }
+
+        if (event.pathParameters['restaurantId'] && !event.pathParameters['reviewId']) {
+            if (event.httpMethod === 'GET') {
+                bodyObj.shouldDo = 'get single restaurant';
+            }
+            if (event.httpMethod === 'DELETE') {
+                bodyObj.shouldDo = 'delete a restaurant and reviews';
+            }
+            if (event.httpMethod === 'PUT') {
+                bodyObj.shouldDo = 'update a restaurant';
+            }
+
+            bodyObj.restaurantId = event.pathParameters['restaurantId'];
+            response.body = JSON.stringify(bodyObj);
+            return response;
+        }
+
+        if (event.pathParameters['restaurantId'] && event.pathParameters['reviewId']) {
+            if (event.httpMethod === 'POST') {
+                bodyObj.shouldDo = 'add a review for a restaurant';
+            }
+            if (event.httpMethod === 'DELETE') {
+                bodyObj.shouldDo = 'delete a review for a restaurant';
+            }
+            if (event.httpMethod === 'PUT') {
+                bodyObj.shouldDo = 'update a review for a restaurant';
+            }
+
+            bodyObj.restaurantId = event.pathParameters['restaurantId'];
+            bodyObj.reviewId = event.pathParameters['reviewId'];
+            response.body = JSON.stringify(bodyObj);
+            return response;
+        }
+
+
+    } catch (err) {
+        console.log(err);
+        response.body = JSON.stringify({
+            error: err.message
+        });
+    }
+
+    return response;
+}
