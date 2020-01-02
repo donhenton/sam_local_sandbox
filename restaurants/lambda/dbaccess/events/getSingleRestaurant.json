@@ -1,0 +1,11 @@
+{
+
+    "resource": "Restaurants",
+    "path": "/restaurant",
+    "httpMethod": "GET",
+    "isBase64Encoded": false,
+    "pathParameters": {
+        "restaurantId": "10e6ccf1-c0cb-4c71-abc3-cbc3e55c82e1"
+    }
+
+}

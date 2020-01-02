@@ -1,0 +1,77 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "create restaurant db tables",
+    "Resources": {
+        "Reviews": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+                "GlobalSecondaryIndexes": [{
+                    "KeySchema": [{
+                            "KeyType": "HASH",
+                            "AttributeName": "restaurantId"
+                        },
+                        {
+                            "KeyType": "RANGE",
+                            "AttributeName": "id"
+                        }
+                    ],
+                    "IndexName": "RestaurantReviews",
+                    "Projection": {
+                        "ProjectionType": "ALL"
+                    },
+                    "ProvisionedThroughput": {
+                        "WriteCapacityUnits": 1,
+                        "ReadCapacityUnits": 1
+                    }
+                }],
+                "AttributeDefinitions": [{
+                        "AttributeName": "restaurantId",
+                        "AttributeType": "S"
+                    },
+                    {
+                        "AttributeName": "id",
+                        "AttributeType": "S"
+                    }
+                ],
+                "ProvisionedThroughput": {
+                    "WriteCapacityUnits": 1,
+                    "ReadCapacityUnits": 1
+                },
+                "TableName": "Reviews",
+                "KeySchema": [{
+                        "KeyType": "HASH",
+                        "AttributeName": "id"
+                    },
+                    {
+                        "KeyType": "RANGE",
+                        "AttributeName": "restaurantId"
+                    }
+                ],
+                "SSESpecification": {
+                    "SSEEnabled": true
+                }
+            }
+        },
+        "Restaurants": {
+            "Type": "AWS::DynamoDB::Table",
+            "Properties": {
+                "KeySchema": [{
+                    "KeyType": "HASH",
+                    "AttributeName": "id"
+                }],
+                "SSESpecification": {
+                    "SSEEnabled": true
+                },
+                "TableName": "Restaurants",
+                "AttributeDefinitions": [{
+                    "AttributeName": "id",
+                    "AttributeType": "S"
+                }],
+                "ProvisionedThroughput": {
+                    "WriteCapacityUnits": 1,
+                    "ReadCapacityUnits": 1
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+
+    "resource": "/restaurants",
+    "path": "/restaurant",
+    "httpMethod": "POST",
+    "isBase64Encoded": false,
+    "body": "{ \"name\": \"smurfazoid\",\"zipCode\": \"44444\",\"city\":\"frump\",\"state\":\"WI\",\"version\":4}"
+
+
+
+}

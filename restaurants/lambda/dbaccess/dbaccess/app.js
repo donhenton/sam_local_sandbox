@@ -1,6 +1,24 @@
-var AWS = require('aws-sdk'),
-    documentClient = new AWS.DynamoDB.DocumentClient();
+var AWS = require('aws-sdk');
+
+/* REMOVE DEV */
+//https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/node-registering-certs.html
+var https = require('https');
+AWS.config.update({
+    region: "us-east-2",
+    httpOptions: {
+        agent: new https.Agent({
+            rejectUnauthorized: false
+        })
+    }
+});
+/* REMOVE DEV */
+
+
+
+var documentClient = new AWS.DynamoDB.DocumentClient();
 var getAllRestaurants = require('./methods/getAllRestaurants');
+var postNewRestaurant = require('./methods/postNewRestaurant');
+var getSingleRestaurant = require('./methods/getSingleRestaurant');
 
 exports.lambdaHandler = async(event, context) => {
     let bodyObj = {
@@ -25,15 +43,22 @@ exports.lambdaHandler = async(event, context) => {
                 return response;
 
             } else {
-                bodyObj.shouldDo = 'add a restaurant'; //POST
+                let eventBody = JSON.parse(event.body)
+                const newResponse = await postNewRestaurant(documentClient, eventBody);
+                response.body = JSON.stringify(newResponse.body);
+                response.statusCode = newResponse.statusCode;
+                return response;
+
             }
-            response.body = JSON.stringify(bodyObj);
-            return response;
+
         }
 
         if (event.pathParameters['restaurantId'] && !event.pathParameters['reviewId']) {
             if (event.httpMethod === 'GET') {
-                bodyObj.shouldDo = 'get single restaurant';
+                const restaurantId = event.pathParameters['restaurantId'];
+                const newResponse = await getSingleRestaurant(documentClient, restaurantId);
+                response.body = JSON.stringify(newResponse);
+                return response;
             }
             if (event.httpMethod === 'DELETE') {
                 bodyObj.shouldDo = 'delete a restaurant and reviews';

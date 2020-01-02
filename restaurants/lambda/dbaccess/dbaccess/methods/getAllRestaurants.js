@@ -18,15 +18,20 @@ getAllRestaurants = async function(client) {
             } else {
 
                 restaurantData.Items.forEach((i, idx) => {
+                    i['reviewDTOs'] = [];
 
                     getReviewsForRestaurant(client, i.id).then(reviewData => {
 
                         i['reviewDTOs'] = reviewData.Items;
                         counter++;
+                        console.log(`i ${i} idx ${idx}`);
                         if (counter === restaurantData.Items.length) {
                             resolve(restaurantData.Items);
                         }
                     }).catch(err => {
+                        console.log("error")
+                        console.log(err)
+                        reject(err)
                         throw new Error(err.message)
                     });
 
