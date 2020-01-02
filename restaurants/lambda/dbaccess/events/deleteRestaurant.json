@@ -1,7 +1,7 @@
 {
 
     "resource": "Restaurants",
-    "path": "/restaurant",
+    "path": "/restaurant/4d6292a1-a582-4a97-a27d-16c8221a99e3",
     "httpMethod": "DELETE",
     "isBase64Encoded": false,
     "pathParameters": {
