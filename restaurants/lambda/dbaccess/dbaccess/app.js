@@ -19,6 +19,7 @@ var documentClient = new AWS.DynamoDB.DocumentClient();
 var getAllRestaurants = require('./methods/getAllRestaurants');
 var postNewRestaurant = require('./methods/postNewRestaurant');
 var getSingleRestaurant = require('./methods/getSingleRestaurant');
+var deleteRestaurant = require('./methods/deleteRestaurant');
 
 exports.lambdaHandler = async(event, context) => {
     let bodyObj = {
@@ -61,7 +62,11 @@ exports.lambdaHandler = async(event, context) => {
                 return response;
             }
             if (event.httpMethod === 'DELETE') {
-                bodyObj.shouldDo = 'delete a restaurant and reviews';
+                const restaurantId = event.pathParameters['restaurantId'];
+                await deleteRestaurant(documentClient, restaurantId);
+                response.body = null;
+                return response;
+
             }
             if (event.httpMethod === 'PUT') {
                 bodyObj.shouldDo = 'update a restaurant';

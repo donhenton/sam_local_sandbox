@@ -4,7 +4,7 @@
     "path": "/restaurant",
     "httpMethod": "POST",
     "isBase64Encoded": false,
-    "body": "{ \"name\": \"smurfazoid\",\"zipCode\": \"44444\",\"city\":\"frump\",\"state\":\"WI\",\"version\":4}"
+    "body": "{ \"name\": \"Mortons Jelly Roll Diner\",\"zipCode\": \"99999\",\"city\":\"Bonzo\",\"state\":\"WI\",\"version\":4}"
 
 
 

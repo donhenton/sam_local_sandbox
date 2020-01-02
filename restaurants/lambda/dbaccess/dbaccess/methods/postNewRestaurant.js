@@ -1,5 +1,5 @@
 /**
- * Post a new restaurant to the restaurants table
+ * Post a new restaurant to the restaurants table, optionally Post reviews 
  * Return {body: stuff, statusCode: 200}
  * @param: client the docclient
  * @param: newRestaurant JSON object for new restaurant
@@ -27,20 +27,7 @@ postNewRestaurant = async function(client, newRestaurant) {
 
 }
 
-/*
 
-    { 
-"name": "smurfazoid",
-"zipCode": "44444",
-"city":"frump",
-"state":"WI",
-"version":4}
-
-    return 
-    {id: 'ffdkjfdkjfkdjfkdj' }
-     status 201 if successful
-
-    */
 
 
 module.exports = postNewRestaurant;
