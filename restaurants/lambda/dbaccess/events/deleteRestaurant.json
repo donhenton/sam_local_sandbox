@@ -5,7 +5,7 @@
     "httpMethod": "DELETE",
     "isBase64Encoded": false,
     "pathParameters": {
-        "restaurantId": "ec6ac615-c217-4fa4-8b56-be4cb71a7ffb"
+        "restaurantId": "0f30993c-4b82-4cc4-9625-82dbea0d1315"
     }
 
 }

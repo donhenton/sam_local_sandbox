@@ -20,6 +20,10 @@ getSingleRestaurant = async function(client, restaurantId) {
         client.query(restaurantParm, function(err, data) {
             const restaurant = data.Items[0];
             // console.log("1")
+            if (!restaurant) {
+                resolve(null);
+                return;
+            }
             restaurant['reviewDTOs'] = [];
             if (err) {
                 reject(err); // an error occurred

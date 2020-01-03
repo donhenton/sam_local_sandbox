@@ -64,8 +64,9 @@ exports.lambdaHandler = async(event, context) => {
             }
             if (event.httpMethod === 'DELETE') {
                 const restaurantId = event.pathParameters['restaurantId'];
-                await deleteRestaurant(documentClient, restaurantId);
-                response.body = null;
+                const t = await deleteRestaurant(documentClient, restaurantId);
+                response.body = t.body;
+                response.statusCode = t.statusCode;
                 return response;
 
             }
