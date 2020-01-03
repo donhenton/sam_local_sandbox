@@ -90,13 +90,14 @@ exports.lambdaHandler = async(event, context) => {
                 }
 
                 const t = await putRestaurant(documentClient, updates, currentRestaurant.body);
-                response.body = JSON.stringify(t);
-                response.statusCode = 200;
+
+                response.body = JSON.stringify(t.body);
+                response.statusCode = t.statusCode;
                 return response;
             }
             if (event.httpMethod === 'POST') {
-                console.log("2")
-                    //add a review for a restaurant known restaurant
+
+                //add a review for a restaurant known restaurant
                 const restaurantId = event.pathParameters['restaurantId'];
                 const newReview = JSON.parse(event.body)
                 const t = await postNewReview(documentClient, newReview, restaurantId);

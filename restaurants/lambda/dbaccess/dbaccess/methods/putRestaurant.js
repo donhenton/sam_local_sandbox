@@ -12,11 +12,11 @@ putRestaurant = async function(client, restaurantUpdates, currentRestaurant) {
         updateExpression['Key'] = { "id": currentRestaurant.id };
         if (Object.keys(updateExpression.ExpressionAttributeValues).length === 0) {
             //occurs when the change requested will not change the object
-            resolve(null);
+            resolve({ statusCode: 200, body: {} });
             return;
         }
         if (!currentRestaurant) {
-            resolve(null);
+            resolve({ statusCode: 404, body: {} });
             return;
 
         }
@@ -25,7 +25,7 @@ putRestaurant = async function(client, restaurantUpdates, currentRestaurant) {
             if (err) {
                 reject(err);
             } else {
-                resolve(data)
+                resolve({ statusCode: 201, body: data })
             }
         });
     });
