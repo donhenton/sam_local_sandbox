@@ -1,0 +1,15 @@
+{
+
+    "resource": "Restaurants",
+    "path": "/restaurant/2a947871-41c6-4927-a799-5778a35f0c7e/review/08e589eb-1481-432c-9d26-9d4a01337feb",
+    "httpMethod": "PUT",
+    "isBase64Encoded": false,
+    "pathParameters": {
+        "restaurantId": "2a947871-41c6-4927-a799-5778a35f0c7e",
+        "reviewId": "08e589eb-1481-432c-9d26-9d4a01337feb"
+    },
+    "body": "{ \"starRating\":5,\"reviewListing\": \"Food To Die For!\", \"stampDate\":\"02221999:10:10:10\"}"
+
+
+
+}

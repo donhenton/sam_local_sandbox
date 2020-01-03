@@ -23,7 +23,7 @@ var deleteRestaurant = require('./methods/deleteRestaurant');
 var deleteReviewForRestaurant = require('./methods/deleteReviewForRestaurant');
 var putRestaurant = require('./methods/putRestaurant');
 var postNewReview = require('./methods/postNewReview');
-// var putReview = require('./methods/putReview');
+var putReviewForRestaurant = require('./methods/putReviewForRestaurant');
 
 exports.lambdaHandler = async(event, context) => {
 
@@ -125,7 +125,19 @@ exports.lambdaHandler = async(event, context) => {
                 return response;
             }
             if (event.httpMethod === 'PUT') {
-                console.log('update a review for a restaurant');
+
+                const reviewId = event.pathParameters['reviewId'];
+                const restaurantId = event.pathParameters['restaurantId'];
+                const newReview = JSON.parse(event.body)
+                const ret = await putReviewForRestaurant(documentClient, restaurantId, reviewId, newReview);
+                if (ret.body) {
+                    response.body = JSON.stringify(ret.body);
+                } else {
+                    response.body = null;
+                }
+
+                response.statusCode = ret.statusCode;
+                return response;
             }
 
 
@@ -136,6 +148,9 @@ exports.lambdaHandler = async(event, context) => {
     } catch (err) {
         // reject(err) in the promise code comes here
         response.statusCode = err.statusCode;
+        if (!response.statusCode) {
+            response.statusCode = 500;
+        }
         response.body = err.message;
 
     }
