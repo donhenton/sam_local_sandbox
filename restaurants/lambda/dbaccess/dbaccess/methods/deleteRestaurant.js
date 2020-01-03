@@ -3,7 +3,7 @@ var deleteReviewForRestaurant = require('./deleteReviewForRestaurant');
 
 /**
  * delete a restaurant and associated reviews
- * returns 200 on success 
+ * returns {statusCode: 200/404, body: null}
  * empty body
  * 
  */

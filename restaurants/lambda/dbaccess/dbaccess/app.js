@@ -93,8 +93,14 @@ exports.lambdaHandler = async(event, context) => {
 
                 const reviewId = event.pathParameters['reviewId'];
                 const restaurantId = event.pathParameters['restaurantId'];
-                await deleteReviewForRestaurant(documentClient, restaurantId, reviewId);
-                response.body = null;
+                const ret = await deleteReviewForRestaurant(documentClient, restaurantId, reviewId);
+                if (ret.body) {
+                    response.body = JSON.stringify(ret.body);
+                } else {
+                    response.body = null;
+                }
+
+                response.statusCode = ret.statusCode;
                 return response;
             }
             if (event.httpMethod === 'PUT') {

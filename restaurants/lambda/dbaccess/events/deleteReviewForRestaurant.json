@@ -1,12 +1,12 @@
 {
 
     "resource": "Restaurants",
-    "path": "/restaurant/ec6ac615-c217-4fa4-8b56-be4cb71a7ffb/review/1fc7b3d4-e644-447a-a9e1-efdbfbd32be7",
+    "path": "/restaurant/66cd659c-0bed-40e3-8d79-d6cfa5229463/review/0bec30e8-c059-49b2-b28b-44bb99ef367d",
     "httpMethod": "DELETE",
     "isBase64Encoded": false,
     "pathParameters": {
-        "restaurantId": "ec6ac615-c217-4fa4-8b56-be4cb71a7ffb",
-        "reviewId": "1fc7b3d4-e644-447a-a9e1-efdbfbd32be7"
+        "restaurantId": "66cd659c-0bed-40e3-8d79-d6cfa5229463",
+        "reviewId": "0bec30e8-c059-49b2-b28b-44bb99ef367d"
     }
 
 }
