@@ -5,7 +5,7 @@ var deleteReviewForRestaurant = require('./deleteReviewForRestaurant');
  * delete a restaurant and associated reviews
  * returns {statusCode: 200/404, body: null}
  * empty body
- * 
+ * @returns status Object
  */
 deleteRestaurant = async function(client, restaurantId) {
 

@@ -3,11 +3,7 @@ var dynamodbUpdateExpression = require('dynamodb-update-expression');
 // https://github.com/4ossiblellc/dynamodb-update-expression#optionsarraymerge-only-for-update
 
 putRestaurant = async function(client, restaurantUpdates, currentRestaurant) {
-    // const restaurantParm = {
-    //     TableName: 'Restaurants',
-    //     KeyConditionExpression: 'id = :r_id',
-    //     ExpressionAttributeValues: { ':r_id': restaurantId }
-    // }
+
 
     return new Promise(function(resolve, reject) {
 

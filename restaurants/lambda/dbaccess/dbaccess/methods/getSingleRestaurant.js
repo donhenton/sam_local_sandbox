@@ -38,10 +38,9 @@ getSingleRestaurant = async function(client, restaurantId) {
                 returnValue.body = restaurant;
                 resolve(returnValue);
             }).catch(err => {
-                console.log("error")
-                console.log(err)
+
                 reject(err)
-                throw new Error(err.message)
+
             });
 
         });

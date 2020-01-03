@@ -1,5 +1,3 @@
-var getReviewsForRestaurant = require('./getReviewsForRestaurant');
-
 /**
  * delete a review for a restaurant  
  * returns {statusCode: 200/404, body: null} 404 if either restaurant or review not found

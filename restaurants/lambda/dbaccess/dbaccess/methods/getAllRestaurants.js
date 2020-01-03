@@ -29,10 +29,9 @@ getAllRestaurants = async function(client) {
                             resolve(restaurantData.Items);
                         }
                     }).catch(err => {
-                        console.log("error")
-                        console.log(err)
+
                         reject(err)
-                        throw new Error(err.message)
+
                     });
 
 

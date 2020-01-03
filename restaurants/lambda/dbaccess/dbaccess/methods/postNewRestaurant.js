@@ -3,7 +3,7 @@
  * Return {body: stuff, statusCode: 200}
  * @param: client the docclient
  * @param: newRestaurant JSON object for new restaurant
- * 
+ * @returns status Object
  */
 const uuidv4 = require('uuid/v4');
 

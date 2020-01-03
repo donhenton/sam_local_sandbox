@@ -22,29 +22,28 @@ var getSingleRestaurant = require('./methods/getSingleRestaurant');
 var deleteRestaurant = require('./methods/deleteRestaurant');
 var deleteReviewForRestaurant = require('./methods/deleteReviewForRestaurant');
 var putRestaurant = require('./methods/putRestaurant');
+var postNewReview = require('./methods/postNewReview');
+// var putReview = require('./methods/putReview');
 
 exports.lambdaHandler = async(event, context) => {
-    let bodyObj = {
-        method: "NONE",
-        restaurantId: null,
-        reviewId: null,
-        shouldDo: null
-    };
+
     const response = {
         'statusCode': 200,
-        'body': JSON.stringify(bodyObj)
+        'body': null
     }
 
     try {
-        bodyObj.method = event.httpMethod;
+
         if (!event.pathParameters) {
 
             if (event.httpMethod === 'GET') {
+                // get all restaurants
                 const restaurantData = await getAllRestaurants(documentClient);
                 response.body = JSON.stringify(restaurantData);
                 return response;
 
             } else {
+                // create a new restaurant
                 let eventBody = JSON.parse(event.body)
                 const newResponse = await postNewRestaurant(documentClient, eventBody);
                 response.body = JSON.stringify(newResponse.body);
@@ -56,7 +55,9 @@ exports.lambdaHandler = async(event, context) => {
         }
 
         if (event.pathParameters['restaurantId'] && !event.pathParameters['reviewId']) {
+
             if (event.httpMethod === 'GET') {
+                // get a restaurant for id
                 const restaurantId = event.pathParameters['restaurantId'];
                 const newResponse = await getSingleRestaurant(documentClient, restaurantId);
                 if (newResponse.body) {
@@ -69,6 +70,7 @@ exports.lambdaHandler = async(event, context) => {
                 return response;
             }
             if (event.httpMethod === 'DELETE') {
+                // delete a restaurant
                 const restaurantId = event.pathParameters['restaurantId'];
                 const t = await deleteRestaurant(documentClient, restaurantId);
                 response.body = t.body;
@@ -77,6 +79,7 @@ exports.lambdaHandler = async(event, context) => {
 
             }
             if (event.httpMethod === 'PUT') {
+                //update a restaurant only
                 const restaurantId = event.pathParameters['restaurantId'];
                 const updates = JSON.parse(event.body);
                 const currentRestaurant = await getSingleRestaurant(documentClient, restaurantId);
@@ -91,14 +94,22 @@ exports.lambdaHandler = async(event, context) => {
                 response.statusCode = 200;
                 return response;
             }
+            if (event.httpMethod === 'POST') {
+                console.log("2")
+                    //add a review for a restaurant known restaurant
+                const restaurantId = event.pathParameters['restaurantId'];
+                const newReview = JSON.parse(event.body)
+                const t = await postNewReview(documentClient, newReview, restaurantId);
+                response.body = t.body;
+                response.statusCode = t.statusCode;
+                return response;
 
+            }
 
         }
 
         if (event.pathParameters['restaurantId'] && event.pathParameters['reviewId']) {
-            if (event.httpMethod === 'POST') {
-                bodyObj.shouldDo = 'add a review for a restaurant';
-            }
+
             if (event.httpMethod === 'DELETE') {
 
                 const reviewId = event.pathParameters['reviewId'];
@@ -114,21 +125,19 @@ exports.lambdaHandler = async(event, context) => {
                 return response;
             }
             if (event.httpMethod === 'PUT') {
-                bodyObj.shouldDo = 'update a review for a restaurant';
+                console.log('update a review for a restaurant');
             }
 
-            bodyObj.restaurantId = event.pathParameters['restaurantId'];
-            bodyObj.reviewId = event.pathParameters['reviewId'];
-            response.body = JSON.stringify(bodyObj);
+
             return response;
         }
 
 
     } catch (err) {
-        console.log(err);
-        response.body = JSON.stringify({
-            error: err.message
-        });
+        // reject(err) in the promise code comes here
+        response.statusCode = err.statusCode;
+        response.body = err.message;
+
     }
 
     return response;
