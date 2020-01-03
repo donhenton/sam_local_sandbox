@@ -1,0 +1,14 @@
+{
+
+    "resource": "/restaurants",
+    "path": "/restaurant",
+    "httpMethod": "PUT",
+    "isBase64Encoded": false,
+    "body": "{  \"zipCode\": \"00000\" ,\"name\": \"Barton's Fink\"  }",
+    "pathParameters": {
+        "restaurantId": "10e6ccf1-c0cb-4c71-abc3-cbc3e55c82e1"
+    }
+
+
+
+}

@@ -21,6 +21,7 @@ var postNewRestaurant = require('./methods/postNewRestaurant');
 var getSingleRestaurant = require('./methods/getSingleRestaurant');
 var deleteRestaurant = require('./methods/deleteRestaurant');
 var deleteReviewForRestaurant = require('./methods/deleteReviewForRestaurant');
+var putRestaurant = require('./methods/putRestaurant');
 
 exports.lambdaHandler = async(event, context) => {
     let bodyObj = {
@@ -39,7 +40,6 @@ exports.lambdaHandler = async(event, context) => {
         if (!event.pathParameters) {
 
             if (event.httpMethod === 'GET') {
-                bodyObj.shouldDo = 'get all restaurants';
                 const restaurantData = await getAllRestaurants(documentClient);
                 response.body = JSON.stringify(restaurantData);
                 return response;
@@ -77,12 +77,22 @@ exports.lambdaHandler = async(event, context) => {
 
             }
             if (event.httpMethod === 'PUT') {
-                bodyObj.shouldDo = 'update a restaurant';
+                const restaurantId = event.pathParameters['restaurantId'];
+                const updates = JSON.parse(event.body);
+                const currentRestaurant = await getSingleRestaurant(documentClient, restaurantId);
+                if (currentRestaurant.statusCode === 404) {
+                    response.body = null;
+                    response.statusCode = 404;
+                    return response;
+                }
+
+                const t = await putRestaurant(documentClient, updates, currentRestaurant.body);
+                response.body = JSON.stringify(t);
+                response.statusCode = 200;
+                return response;
             }
 
-            bodyObj.restaurantId = event.pathParameters['restaurantId'];
-            response.body = JSON.stringify(bodyObj);
-            return response;
+
         }
 
         if (event.pathParameters['restaurantId'] && event.pathParameters['reviewId']) {
