@@ -19,8 +19,8 @@ deleteRestaurant = async function(client, restaurantId) {
             foundRestaurant = await getSingleRestaurant(client, restaurantId);
 
             // console.log("found " + foundRestaurant.id)
-            if (foundRestaurant) {
-                foundRestaurant.reviewDTOs.forEach(rev => {
+            if (foundRestaurant.statusCode === 200) {
+                foundRestaurant.body.reviewDTOs.forEach(rev => {
 
                     //TODO delete the reviews
                     deleteReviewForRestaurant(client, restaurantId, rev.id).then((d) => {

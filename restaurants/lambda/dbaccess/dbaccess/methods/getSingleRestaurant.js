@@ -1,16 +1,12 @@
 getReviewsForRestaurant = require('./getReviewsForRestaurant');
 getSingleRestaurant = async function(client, restaurantId) {
 
-
+    /**
+     * returns {statusCode:200/404, body: null/restaurant}
+     */
     return new Promise(function(resolve, reject) {
 
-        const restaurantTable = {
-            TableName: 'Restaurants'
-        };
-        const reviewTable = {
-            TableName: 'Reviews'
-        };
-
+        const returnValue = { statusCode: 200, body: null }
         const restaurantParm = {
             TableName: 'Restaurants',
             KeyConditionExpression: 'id = :r_id',
@@ -21,7 +17,8 @@ getSingleRestaurant = async function(client, restaurantId) {
             const restaurant = data.Items[0];
             // console.log("1")
             if (!restaurant) {
-                resolve(null);
+                returnValue.statusCode = 404;
+                resolve(returnValue);
                 return;
             }
             restaurant['reviewDTOs'] = [];
@@ -38,7 +35,8 @@ getSingleRestaurant = async function(client, restaurantId) {
                     restaurant['reviewDTOs'] = reviewData.Items;
                 }
                 //    console.log("5 " + reviewData + " " + restaurant.reviewDTOs)
-                resolve(restaurant);
+                returnValue.body = restaurant;
+                resolve(returnValue);
             }).catch(err => {
                 console.log("error")
                 console.log(err)

@@ -59,7 +59,13 @@ exports.lambdaHandler = async(event, context) => {
             if (event.httpMethod === 'GET') {
                 const restaurantId = event.pathParameters['restaurantId'];
                 const newResponse = await getSingleRestaurant(documentClient, restaurantId);
-                response.body = JSON.stringify(newResponse);
+                if (newResponse.body) {
+                    response.body = JSON.stringify(newResponse.body);
+                } else {
+                    response.body = null;
+                }
+
+                response.statusCode = newResponse.statusCode;
                 return response;
             }
             if (event.httpMethod === 'DELETE') {
