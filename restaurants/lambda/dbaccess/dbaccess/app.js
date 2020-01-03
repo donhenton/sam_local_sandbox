@@ -2,17 +2,20 @@ var AWS = require('aws-sdk');
 
 /* REMOVE DEV */
 //https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/node-registering-certs.html
-var https = require('https');
-AWS.config.update({
-    region: "us-east-2",
-    httpOptions: {
-        agent: new https.Agent({
-            rejectUnauthorized: false
-        })
-    }
-});
+if (!process.env.NODE_ENV || process.env.NODE_ENV !== 'production') {
+    var https = require('https');
+    AWS.config.update({
+        region: "us-east-2",
+        httpOptions: {
+            agent: new https.Agent({
+                rejectUnauthorized: false
+            })
+        }
+    });
+}
 /* REMOVE DEV */
 
+var corsDomain = process.env["CORS_DOMAINS"];
 
 
 var documentClient = new AWS.DynamoDB.DocumentClient();
@@ -29,11 +32,19 @@ exports.lambdaHandler = async(event, context) => {
 
     const response = {
         'statusCode': 200,
-        'body': null
+        'body': null,
+        "headers": {
+            "Content-Type": "application/json",
+            "access-control-allow-headers": "access-control-allow-headers,access-control-allow-methods,access-control-allow-origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
+            "access-control-allow-methods": "GET,POST,DELETE,PUT",
+            "access-control-allow-origin": corsDomain
+        },
     }
 
     try {
-
+        if (!corsDomain) {
+            throw new Error("environment variable CORS_DOMAIN must be defined with the domains for CORS")
+        }
         if (!event.pathParameters) {
 
             if (event.httpMethod === 'GET') {

@@ -1,0 +1,7 @@
+{
+
+    "DbAccessFunction": {
+        "NODE_ENV": "development",
+        "CORS_DOMAINS": "frump"
+    }
+}

@@ -17,6 +17,10 @@ Resources:
       CodeUri: dbaccess/
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
+      Environment: 
+        Variables:
+            NODE_ENV: VALUE
+            CORS_DOMAINS: VALUE
       # Events:
       #   DbAccess:
       #     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api

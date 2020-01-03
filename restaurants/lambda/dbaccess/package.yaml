@@ -12,9 +12,13 @@ Resources:
   DbAccessFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://com.awsdhenton.restaurants/2b8ed2679d714a6600014bc44a1b215e
+      CodeUri: s3://com.awsdhenton.restaurants/1e0a35aec94055805e849ad38bf6ad9b
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
+      Environment:
+        Variables:
+          NODE_ENV: VALUE
+          CORS_DOMAINS: VALUE
 Outputs:
   DbAccessFunction:
     Description: Stories Lambda Function ARN
