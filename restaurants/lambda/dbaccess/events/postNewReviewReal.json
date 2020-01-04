@@ -1,0 +1,14 @@
+{
+
+    "resource": "/restaurants",
+    "path": "/restaurant/10e6ccf1-c0cb-4c71-abc3-cbc3e55c82e1/review",
+    "httpMethod": "POST",
+    "isBase64Encoded": false,
+    "pathParameters": {
+        "restaurantId": "10e6ccf1-c0cb-4c71-abc3-cbc3e55c82e1"
+    },
+    "body": "{ \"starRating\":5,\"reviewListing\": \"its not a job,its a hobby!\", \"stampDate\":\"2020-01-04T17:13:12.257Z\"}"
+
+
+
+}

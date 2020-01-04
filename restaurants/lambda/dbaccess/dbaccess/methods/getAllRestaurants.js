@@ -24,7 +24,7 @@ getAllRestaurants = async function(client) {
 
                         i['reviewDTOs'] = reviewData.Items;
                         counter++;
-                        console.log(`i ${i} idx ${idx}`);
+                        //  console.log(`i ${i} idx ${idx}`);
                         if (counter === restaurantData.Items.length) {
                             resolve(restaurantData.Items);
                         }

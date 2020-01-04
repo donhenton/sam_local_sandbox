@@ -31,8 +31,9 @@ var putReviewForRestaurant = require('./methods/putReviewForRestaurant');
 exports.lambdaHandler = async(event, context) => {
 
     const response = {
-        'statusCode': 200,
-        'body': null,
+        "statusCode": 200,
+        "body": null,
+        "isBase64Encoded": false,
         "headers": {
             "Content-Type": "application/json",
             "access-control-allow-headers": "access-control-allow-headers,access-control-allow-methods,access-control-allow-origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token",
@@ -119,7 +120,7 @@ exports.lambdaHandler = async(event, context) => {
                 const restaurantId = event.pathParameters['restaurantId'];
                 const newReview = JSON.parse(event.body)
                 const t = await postNewReview(documentClient, newReview, restaurantId);
-                response.body = t.body;
+                response.body = JSON.stringify(t.body);
                 response.statusCode = t.statusCode;
                 return response;
 
