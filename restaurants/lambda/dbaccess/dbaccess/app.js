@@ -45,6 +45,13 @@ exports.lambdaHandler = async(event, context) => {
         if (!corsDomain) {
             throw new Error("environment variable CORS_DOMAIN must be defined with the domains for CORS")
         }
+
+        if (event.httpMethod === 'OPTIONS') {
+            return response;
+        }
+
+
+
         if (!event.pathParameters) {
 
             if (event.httpMethod === 'GET') {

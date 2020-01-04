@@ -26,7 +26,7 @@ This is a sample template for find-stories - Below is a brief explanation of wha
 
 ### Local development
 
-**Invoking function locally using a local sample payload**
+** Invoking function locally using a local sample payload**
 
 ```bash
 sam local invoke HelloWorldFunction --event event.json
@@ -205,3 +205,25 @@ sam logs -n HelloWorldFunction --stack-name find-all-characters --tail
 ```
 
 **NOTE**: Alternatively this could be part of package.json scripts section.
+
+## CORS
+
+
+
+## CORS
+
+An OPTIONS request should return these headers
+
+```shell
+access-control-allow-headers: access-control-allow-headers,access-control-allow-methods,access-control-allow-origin,Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token
+access-control-allow-methods: DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT
+access-control-allow-origin: *
+```
+
+You will need to enter this for each resource in API-Gateway, twice to eliminate errors
+about 200 response
+
+* Actions --> Enable CORS
+* enter 200 response in the method response section of the OPTIONS editing area
+* Actions --> Enable CORS
+* cut and paste th headers above, they are not saved

@@ -12,7 +12,7 @@ Resources:
   DbAccessFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://com.awsdhenton.restaurants/1e0a35aec94055805e849ad38bf6ad9b
+      CodeUri: s3://com.awsdhenton.restaurants/8e7718df7b2c3e79c5a49afb5f3c61d0
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
       Environment:
