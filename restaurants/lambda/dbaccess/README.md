@@ -208,10 +208,6 @@ sam logs -n HelloWorldFunction --stack-name find-all-characters --tail
 
 ## CORS
 
-
-
-## CORS
-
 An OPTIONS request should return these headers
 
 ```shell
