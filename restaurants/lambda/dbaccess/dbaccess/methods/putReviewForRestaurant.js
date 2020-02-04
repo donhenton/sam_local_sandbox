@@ -52,9 +52,11 @@ putReviewForRestaurant = async function(client, restaurantId, reviewId, newRevie
 
 
     }
+    //TODO this always returns something will always be defined
+    
     let review = await findReview();
 
-
+    //TODO this should be review.statusCode !== 200
     if (review) {
         var updateExpression = dynamodbUpdateExpression.getUpdateExpression(review, newReview);
         updateExpression['TableName'] = 'Reviews';
@@ -79,6 +81,7 @@ putReviewForRestaurant = async function(client, restaurantId, reviewId, newRevie
         });
 
     } else {
+        //TODO status should be from review.status
         return Promise.reject({
             status: 404,
             body: {}

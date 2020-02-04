@@ -1,6 +1,7 @@
-# find-stories
+# DB Access
 
-This is a sample template for find-stories - Below is a brief explanation of what we have generated for you:
+## Code for Dynamodb CRUD Actions for Restaurants and Reviews.
+This is a sample template for Db Access - Below is a brief explanation of what we have generated for you:
 
 ```bash
 .
