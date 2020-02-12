@@ -1,0 +1,14 @@
+{
+    "RequestType": "Create",
+    "ServiceToken": "arn:aws:lambda:us-east-2:235926060045:function:getSecureSSM",
+    "ResponseURL": "https://cloudformation-custom-resource-response-useast2.s3.us-east-2.amazonaws.com/arn%3Aaws%3Acloudformation%3Aus-east-2%3A235926060045%3Astack/getSecureSSM-usage/af0791c0-4205-11ea-b573-025282f53354%7CSecureItem%7C34a3761a-07b7-4453-94cf-784e204d40cd?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200128T193759Z&X-Amz-SignedHeaders=host&X-Amz-Expires=7200&X-Amz-Credential=AKIAVRFIPK6POEYNUIGC%2F20200128%2Fus-east-2%2Fs3%2Faws4_request&X-Amz-Signature=abdaa5afa706c9420d493010c2b3785e82e8d1ca81560677a8e7af43e1744a67",
+    "StackId": "arn:aws:cloudformation:us-east-2:235926060045:stack/getSecureSSM-usage/af0791c0-4205-11ea-b573-025282f53354",
+    "RequestId": "34a3761a-07b7-4453-94cf-784e204d40cd",
+    "LogicalResourceId": "SecureItem",
+    "ResourceType": "Custom::GetSecureSSMFunction",
+    "ResourceProperties": {
+        "ServiceToken": "arn:aws:lambda:us-east-2:235926060045:function:getSecureSSM",
+        "ParameterName": "/bonzo/parameter/alpha",
+        "WithDecryption": false
+    }
+}
