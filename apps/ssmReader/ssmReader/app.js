@@ -5,7 +5,7 @@ var cfnResponse = require('cfn-response');
 
 exports.lambdaHandler = async(event, context) => {
 
-    var responseBody = { statusCode: 500, Value: 'request failed' }
+    var responseData = {}
     var responseStatus = 'SUCCESS';
     var physical_id = uuidv4();
     if (event['RequestType'] === 'Create' || event['RequestType'] === 'Update') {
@@ -21,23 +21,24 @@ exports.lambdaHandler = async(event, context) => {
         }
         try {
             const data = await ssmClient.getParameter(parms).promise();
-            responseBody.statusCode = 200;
-            responseBody.Value = data.Parameter.Value;
+
+            responseData['Value'] = data.Parameter.Value;
         } catch (err) {
             if (err.code === 'ParameterNotFound') {
-                responseBody.statusCode = 404;
-                responseBody.Value = err.code;
+
+                responseData.Value = err.code;
+                responseStatus = 'FAILED'
             } else {
-                responseBody.Value = JSON.stringify(err)
+                responseData['Value'] = JSON.stringify(err)
             }
 
         }
 
 
     } else {
-        responseBody.Value = `failed because RequestType not proper type`;
-
+        responseData['Value'] = `failed because RequestType not proper type`;
+        responseStatus = 'FAILED';
     }
-    //   cfnResponse.send(event, context, responseStatus, responseData, physical_id)
-    return responseBody;
+    cfnResponse.send(event, context, responseStatus, responseData, physical_id)
+    return responseData;
 };
