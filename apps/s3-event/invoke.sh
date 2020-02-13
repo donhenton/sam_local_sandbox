@@ -1,0 +1,1 @@
+sam local invoke ImageSizerFunction --event real_event.json   --profile=testuser

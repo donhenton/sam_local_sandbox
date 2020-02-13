@@ -1,0 +1,115 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  sam-app
+
+  Sample SAM Template for sam-app
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 10
+  
+Resources:
+
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: com.awsdhenton.s3.event.testbucket
+      NotificationConfiguration:
+        LambdaConfigurations:
+          - Event: 's3:ObjectCreated:*'
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix
+                    Value: test/
+                  - Name: suffix
+                    Value: .txt
+            Function: !GetAtt S3EventFunction.Arn
+
+  S3InvokeLambdaPermission:
+      Type: AWS::Lambda::Permission
+      Properties:
+        Action: lambda:InvokeFunction
+        FunctionName: !Ref S3EventFunction
+        Principal: s3.amazonaws.com
+        SourceArn: !Sub arn:aws:s3:::com.awsdhenton.s3.event.testbucket
+  S3EventFunctionRole:
+    Type: 'AWS::IAM::Role'
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service:
+                - lambda.amazonaws.com
+            Action:
+              - 'sts:AssumeRole'
+      Path: /
+      RoleName: !Join 
+        - ''
+        - - !Ref 'AWS::StackName'
+          - S3EventFunctionRole
+          - '-'
+          - !Ref 'AWS::Region'
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+          - id: W28
+            reason: >-
+              Resource name validated and found to pose no risk to updates that
+              require replacement of this resource.
+  S3EventPolicy:
+    Type: 'AWS::IAM::Policy'
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+          - Effect: Allow
+            Action:
+              - 'logs:CreateLogStream'
+              - 'logs:CreateLogGroup'
+              - 'logs:PutLogEvents'
+            Resource: !Sub >-
+              arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*
+          - Effect: Allow
+            Action:
+              - s3:Get*
+            Resource:
+              - 'arn:aws:s3:::*'
+          
+      PolicyName: !Join 
+        - ''
+        - - !Ref 'AWS::StackName'
+          - S3EventPolicy
+      Roles:
+        - !Ref S3EventFunctionRole
+ 
+
+  S3EventFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: src/
+      Handler: app.lambdaHandler
+      Runtime: nodejs10.x
+      FunctionName: s3Events
+      Timeout: 10
+      Role: !GetAtt S3EventFunctionRole.Arn
+
+      # Events:
+      #   S3Event:
+      #     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+      #     Properties:
+      #       Path: /hello
+      #       Method: get
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  S3EventFunction:
+    Description: "S3 Events Lambda Function ARN"
+    Value: !GetAtt S3EventFunction.Arn
+  

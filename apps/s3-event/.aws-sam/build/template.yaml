@@ -1,0 +1,108 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'sam-app
+
+  Sample SAM Template for sam-app
+
+  '
+Globals:
+  Function:
+    Timeout: 10
+Outputs:
+  S3EventFunction:
+    Description: S3 Events Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - S3EventFunction
+      - Arn
+Resources:
+  Bucket:
+    Properties:
+      BucketName: com.awsdhenton.s3.event.testbucket
+      NotificationConfiguration:
+        LambdaConfigurations:
+        - Event: s3:ObjectCreated:*
+          Filter:
+            S3Key:
+              Rules:
+              - Name: prefix
+                Value: test/
+              - Name: suffix
+                Value: .txt
+          Function:
+            Fn::GetAtt:
+            - S3EventFunction
+            - Arn
+    Type: AWS::S3::Bucket
+  S3EventFunction:
+    Properties:
+      CodeUri: S3EventFunction
+      FunctionName: s3Events
+      Handler: app.lambdaHandler
+      Role:
+        Fn::GetAtt:
+        - S3EventFunctionRole
+        - Arn
+      Runtime: nodejs10.x
+      Timeout: 10
+    Type: AWS::Serverless::Function
+  S3EventFunctionRole:
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+        - id: W28
+          reason: Resource name validated and found to pose no risk to updates that
+            require replacement of this resource.
+    Properties:
+      AssumeRolePolicyDocument:
+        Statement:
+        - Action:
+          - sts:AssumeRole
+          Effect: Allow
+          Principal:
+            Service:
+            - lambda.amazonaws.com
+        Version: 2012-10-17
+      Path: /
+      RoleName:
+        Fn::Join:
+        - ''
+        - - Ref: AWS::StackName
+          - S3EventFunctionRole
+          - '-'
+          - Ref: AWS::Region
+    Type: AWS::IAM::Role
+  S3EventPolicy:
+    Properties:
+      PolicyDocument:
+        Statement:
+        - Action:
+          - logs:CreateLogStream
+          - logs:CreateLogGroup
+          - logs:PutLogEvents
+          Effect: Allow
+          Resource:
+            Fn::Sub: arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*
+        - Action:
+          - s3:Get*
+          Effect: Allow
+          Resource:
+          - arn:aws:s3:::*
+        Version: 2012-10-17
+      PolicyName:
+        Fn::Join:
+        - ''
+        - - Ref: AWS::StackName
+          - S3EventPolicy
+      Roles:
+      - Ref: S3EventFunctionRole
+    Type: AWS::IAM::Policy
+  S3InvokeLambdaPermission:
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName:
+        Ref: S3EventFunction
+      Principal: s3.amazonaws.com
+      SourceArn:
+        Fn::Sub: arn:aws:s3:::com.awsdhenton.s3.event.testbucket
+    Type: AWS::Lambda::Permission
+Transform: AWS::Serverless-2016-10-31
