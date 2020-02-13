@@ -12,25 +12,16 @@ Resources:
   SSMReaderFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://sam.awsdhenton.com.bucket/a90064da266374567b6f482958ec3f2a
+      CodeUri: s3://sam.awsdhenton.com.bucket/9505609ce46d4ba9c4039f0137e50e1d
+      Role: arn:aws:iam::235926060045:role/basicLamdba
       Handler: app.lambdaHandler
+      FunctionName: ssmReader
+      Timeout: 10
       Runtime: nodejs10.x
-      Events:
-        SSMReader:
-          Type: Api
-          Properties:
-            Path: /ssmReader
-            Method: get
 Outputs:
   SSMReaderFunction:
     Description: SSMReader Lambda Function ARN
     Value:
       Fn::GetAtt:
       - SSMReaderFunction
-      - Arn
-  SSMReaderFunctionIamRole:
-    Description: Implicit IAM Role created for SSMReader function
-    Value:
-      Fn::GetAtt:
-      - SSMReaderFunctionRole
       - Arn

@@ -15,14 +15,17 @@ Resources:
     Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
     Properties:
       CodeUri: ssmReader/
+      Role: arn:aws:iam::235926060045:role/basicLamdba
       Handler: app.lambdaHandler
+      FunctionName: ssmReader
+      Timeout: 10
       Runtime: nodejs10.x
-      Events:
-        SSMReader:
-          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
-          Properties:
-            Path: /ssmReader
-            Method: get
+      # Events:
+      #   SSMReader:
+      #     Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+      #     Properties:
+      #       Path: /ssmReader
+      #       Method: get
 
 Outputs:
   # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
@@ -31,6 +34,6 @@ Outputs:
   SSMReaderFunction:
     Description: "SSMReader Lambda Function ARN"
     Value: !GetAtt SSMReaderFunction.Arn
-  SSMReaderFunctionIamRole:
-    Description: "Implicit IAM Role created for SSMReader function"
-    Value: !GetAtt SSMReaderFunctionRole.Arn
+  # SSMReaderFunctionIamRole:
+  #   Description: "IAM Role Predefined Basic Lambda"
+  #   Value: !GetAtt SSMReaderFunctionRole.Arn
