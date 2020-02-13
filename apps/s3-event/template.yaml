@@ -9,13 +9,19 @@ Description: >
 Globals:
   Function:
     Timeout: 10
-  
+
+Parameters:
+  BucketName:
+    Type: String
+    Default: com.awsdhenton.s3.event.testbucket
+
+
 Resources:
 
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: com.awsdhenton.s3.event.testbucket
+      BucketName: !Ref BucketName
       NotificationConfiguration:
         LambdaConfigurations:
           - Event: 's3:ObjectCreated:*'
@@ -34,7 +40,7 @@ Resources:
         Action: lambda:InvokeFunction
         FunctionName: !Ref S3EventFunction
         Principal: s3.amazonaws.com
-        SourceArn: !Sub arn:aws:s3:::com.awsdhenton.s3.event.testbucket
+        SourceArn: !Sub arn:aws:s3:::${BucketName}
   S3EventFunctionRole:
     Type: 'AWS::IAM::Role'
     Properties:

@@ -8,11 +8,16 @@ Description: 'sam-app
 Globals:
   Function:
     Timeout: 10
+Parameters:
+  BucketName:
+    Type: String
+    Default: com.awsdhenton.s3.event.testbucket
 Resources:
   Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: com.awsdhenton.s3.event.testbucket
+      BucketName:
+        Ref: BucketName
       NotificationConfiguration:
         LambdaConfigurations:
         - Event: s3:ObjectCreated:*
@@ -35,7 +40,7 @@ Resources:
         Ref: S3EventFunction
       Principal: s3.amazonaws.com
       SourceArn:
-        Fn::Sub: arn:aws:s3:::com.awsdhenton.s3.event.testbucket
+        Fn::Sub: arn:aws:s3:::${BucketName}
   S3EventFunctionRole:
     Type: AWS::IAM::Role
     Properties:
@@ -90,7 +95,7 @@ Resources:
   S3EventFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://sam.awsdhenton.com.bucket/b6a7bc5dd0de3db3a67288af64772b7a
+      CodeUri: s3://sam.awsdhenton.com.bucket/b0a66cc022947414268bd187925abc30
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
       FunctionName: s3Events
