@@ -95,7 +95,7 @@ Resources:
   S3EventFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://sam.awsdhenton.com.bucket/b0a66cc022947414268bd187925abc30
+      CodeUri: s3://sam.awsdhenton.com.bucket/2c106cd60b7f47236ae23f6e4dc96ca1
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
       FunctionName: s3Events
