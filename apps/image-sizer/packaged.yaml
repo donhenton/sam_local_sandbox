@@ -65,8 +65,8 @@ Resources:
   ImageSizerFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://sam.awsdhenton.com.bucket/9493288931be1d4899b8f6f064cbd897
-      Handler: app.lambdaHandler
+      CodeUri: s3://sam.awsdhenton.com.bucket/3bc8dc8299b92c50873dd5f82eab44fe
+      Handler: index.handler
       FunctionName: imageSizer
       Timeout: 10
       Role:
