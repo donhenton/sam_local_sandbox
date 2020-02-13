@@ -1,1 +1,1 @@
-sam local invoke SSMReaderFunction --event real_event.json   --profile=testuser
+sam local invoke ImageSizerFunction --event real_event.json   --profile=testuser

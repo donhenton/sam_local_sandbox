@@ -1,0 +1,89 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'image-sizer
+
+  Sample SAM Template for image-sizer
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+Resources:
+  ImageHandlerFunctionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: 2012-10-17
+        Statement:
+        - Effect: Allow
+          Principal:
+            Service:
+            - lambda.amazonaws.com
+          Action:
+          - sts:AssumeRole
+      Path: /
+      RoleName:
+        Fn::Join:
+        - ''
+        - - Ref: AWS::StackName
+          - ImageHandlerFunctionRole
+          - '-'
+          - Ref: AWS::Region
+    Metadata:
+      cfn_nag:
+        rules_to_suppress:
+        - id: W28
+          reason: Resource name validated and found to pose no risk to updates that
+            require replacement of this resource.
+  ImageHandlerPolicy:
+    Type: AWS::IAM::Policy
+    Properties:
+      PolicyDocument:
+        Version: 2012-10-17
+        Statement:
+        - Effect: Allow
+          Action:
+          - logs:CreateLogStream
+          - logs:CreateLogGroup
+          - logs:PutLogEvents
+          Resource:
+            Fn::Sub: arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*
+        - Effect: Allow
+          Action:
+          - s3:GetObject
+          - s3:PutObject
+          - s3:ListBucket
+          Resource:
+          - arn:aws:s3:::*
+      PolicyName:
+        Fn::Join:
+        - ''
+        - - Ref: AWS::StackName
+          - ImageHandlerPolicy
+      Roles:
+      - Ref: ImageHandlerFunctionRole
+  ImageSizerFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: s3://sam.awsdhenton.com.bucket/9493288931be1d4899b8f6f064cbd897
+      Handler: app.lambdaHandler
+      FunctionName: imageSizer
+      Timeout: 10
+      Role:
+        Fn::GetAtt:
+        - ImageHandlerFunctionRole
+        - Arn
+      Runtime: nodejs10.x
+Outputs:
+  ImageSizerFunction:
+    Description: Hello World Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - ImageSizerFunction
+      - Arn
+  ImageSizerFunctionIamRole:
+    Description: Implicit IAM Role created for Image Sizer function
+    Value:
+      Fn::GetAtt:
+      - ImageHandlerFunctionRole
+      - Arn
