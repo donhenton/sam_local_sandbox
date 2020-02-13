@@ -14,7 +14,17 @@ This is a sample template for sam-app - Below is a brief explanation of what we 
 │           └── test-handler.js
 ├── template.yaml               <-- SAM template
 ```
+
 <https://github.com/awsdocs/aws-doc-sdk-examples/blob/master/cloudformation/codepipeline/template-codepipeline-github-events-json.json>
+
+## Modifications To Template
+
+* Role: arn:aws:iam::235926060045:role/basicLamdba
+* FunctionName: ssmReader
+* Timeout: 10
+
+These were added to the template which is the basis for the packaged.yaml which is created by pkg.sh command
+
 ## Requirements
 
 * AWS CLI already configured with Administrator permission
