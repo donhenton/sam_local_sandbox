@@ -11,36 +11,40 @@ Globals:
     Timeout: 10
 
 Parameters:
-  BucketName:
+  BucketNameBase:
     Type: String
     Default: com.awsdhenton.s3.event.testbucket
 
 
 Resources:
 
-  Bucket:
+  InputBucket:
     Type: AWS::S3::Bucket
     Properties:
-      BucketName: !Ref BucketName
+      BucketName: !Sub ${BucketNameBase}.input
       NotificationConfiguration:
         LambdaConfigurations:
           - Event: 's3:ObjectCreated:*'
-            Filter:
-              S3Key:
-                Rules:
-                  - Name: prefix
-                    Value: test/
-                  - Name: suffix
-                    Value: .txt
+            # Filter:
+            #   S3Key:
+            #     Rules:
+            #       - Name: suffix
+            #         Value: .jpg      
+                   
             Function: !GetAtt S3EventFunction.Arn
-
+    
+  OutputBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: !Sub ${BucketNameBase}.output
+     
   S3InvokeLambdaPermission:
       Type: AWS::Lambda::Permission
       Properties:
         Action: lambda:InvokeFunction
         FunctionName: !Ref S3EventFunction
         Principal: s3.amazonaws.com
-        SourceArn: !Sub arn:aws:s3:::${BucketName}
+        SourceArn: !Sub arn:aws:s3:::${BucketNameBase}.input
   S3EventFunctionRole:
     Type: 'AWS::IAM::Role'
     Properties:

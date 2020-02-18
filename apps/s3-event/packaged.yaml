@@ -9,29 +9,27 @@ Globals:
   Function:
     Timeout: 10
 Parameters:
-  BucketName:
+  BucketNameBase:
     Type: String
     Default: com.awsdhenton.s3.event.testbucket
 Resources:
-  Bucket:
+  InputBucket:
     Type: AWS::S3::Bucket
     Properties:
       BucketName:
-        Ref: BucketName
+        Fn::Sub: ${BucketNameBase}.input
       NotificationConfiguration:
         LambdaConfigurations:
         - Event: s3:ObjectCreated:*
-          Filter:
-            S3Key:
-              Rules:
-              - Name: prefix
-                Value: test/
-              - Name: suffix
-                Value: .txt
           Function:
             Fn::GetAtt:
             - S3EventFunction
             - Arn
+  OutputBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName:
+        Fn::Sub: ${BucketNameBase}.output
   S3InvokeLambdaPermission:
     Type: AWS::Lambda::Permission
     Properties:
@@ -40,7 +38,7 @@ Resources:
         Ref: S3EventFunction
       Principal: s3.amazonaws.com
       SourceArn:
-        Fn::Sub: arn:aws:s3:::${BucketName}
+        Fn::Sub: arn:aws:s3:::${BucketNameBase}.input
   S3EventFunctionRole:
     Type: AWS::IAM::Role
     Properties:
@@ -95,7 +93,7 @@ Resources:
   S3EventFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: s3://sam.awsdhenton.com.bucket/2c106cd60b7f47236ae23f6e4dc96ca1
+      CodeUri: s3://sam.awsdhenton.com.bucket/760ec097666bc15180633e277e6e41a8
       Handler: app.lambdaHandler
       Runtime: nodejs10.x
       FunctionName: s3Events

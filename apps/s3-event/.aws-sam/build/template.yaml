@@ -15,28 +15,26 @@ Outputs:
       - S3EventFunction
       - Arn
 Parameters:
-  BucketName:
+  BucketNameBase:
     Default: com.awsdhenton.s3.event.testbucket
     Type: String
 Resources:
-  Bucket:
+  InputBucket:
     Properties:
       BucketName:
-        Ref: BucketName
+        Fn::Sub: ${BucketNameBase}.input
       NotificationConfiguration:
         LambdaConfigurations:
         - Event: s3:ObjectCreated:*
-          Filter:
-            S3Key:
-              Rules:
-              - Name: prefix
-                Value: test/
-              - Name: suffix
-                Value: .txt
           Function:
             Fn::GetAtt:
             - S3EventFunction
             - Arn
+    Type: AWS::S3::Bucket
+  OutputBucket:
+    Properties:
+      BucketName:
+        Fn::Sub: ${BucketNameBase}.output
     Type: AWS::S3::Bucket
   S3EventFunction:
     Properties:
@@ -108,6 +106,6 @@ Resources:
         Ref: S3EventFunction
       Principal: s3.amazonaws.com
       SourceArn:
-        Fn::Sub: arn:aws:s3:::${BucketName}
+        Fn::Sub: arn:aws:s3:::${BucketNameBase}.input
     Type: AWS::Lambda::Permission
 Transform: AWS::Serverless-2016-10-31

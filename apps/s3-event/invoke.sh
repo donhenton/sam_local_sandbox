@@ -1,1 +1,2 @@
-sam local invoke ImageSizerFunction --event real_event.json   --profile=testuser
+sam local invoke S3EventFunction \
+--event events/s3event.json   --profile=testuser
