@@ -12,6 +12,6 @@
     "contributors": [],
     "dependencies": {
 
-        "uuid": "3.3.3"
+        "uuid": "14.0.0"
     }
 }
